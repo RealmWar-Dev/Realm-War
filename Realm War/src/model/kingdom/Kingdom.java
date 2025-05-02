@@ -1,4 +1,4 @@
-package model;
+package model.kingdom;
 
 public class Kingdom {
 }

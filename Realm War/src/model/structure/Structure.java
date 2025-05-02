@@ -1,4 +1,4 @@
-package model;
+package model.structure;
 
 public class Structure {
 }
