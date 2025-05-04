@@ -1,4 +1,4 @@
 package model.block;
 
-public class Knight {
+public class Block {
 }
