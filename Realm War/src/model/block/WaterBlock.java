@@ -1,4 +1,18 @@
 package model.block;
 
-public class WaterBlock {
+public class WaterBlock extends Block {
+
+    public WaterBlock(int x, int y) {
+        super(x, y);
+        this.canBuildStructure = false;
+        this.canMoveThrough = false;
+        this.canBeAbsorbed = false;
+        this.resourceType = ResourceType.NONE;
+    }
+
+    @Override
+    public String getBlockType() {
+        return "WaterBlock";
+    }
 }
+
