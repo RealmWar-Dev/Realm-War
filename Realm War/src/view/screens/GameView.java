@@ -1,4 +1,4 @@
-package view;
+package view.screens;
 
 public class GameView {
 }
