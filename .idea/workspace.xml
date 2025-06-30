@@ -4,19 +4,46 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17960de7-8f39-4370-8d17-5c16542b5db6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Realm War/src/Luancher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Realm War/src/model/GameState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Realm War/src/view/components/StatusBar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Realm War/src/view/components/StructureIcon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Realm War/src/view/components/UnitIcon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Realm War/src/view/screens/EndGamePanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Realm War/src/view/screens/MainMenuPanel.java" afterDir="false" />
+    <list default="true" id="17960de7-8f39-4370-8d17-5c16542b5db6" name="Changes" comment="simple edit">
+      <change afterPath="$PROJECT_DIR$/Realm War/src/controller/NavigationManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Realm War/src/controller/UserManagement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Realm War/src/view/MainFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Realm War/src/view/assets/image/background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Realm War/src/view/assets/image/icons/help.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Realm War/src/view/assets/image/icons/return-arrow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Realm War/src/view/assets/image/icons/sound-off.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Realm War/src/view/assets/image/icons/sound-on.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Realm War/src/view/assets/image/icons/user_login.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Realm War/src/view/assets/image/icons/user_logout.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Realm War/src/view/assets/image/logo in splash.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Realm War/src/view/assets/image/splash background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Realm War/src/view/assets/music/backgroundEyIran_music.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Realm War/src/view/components/BaseBackgroundPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Realm War/src/view/components/Buttons.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Realm War/src/view/components/Field.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Realm War/src/view/components/PasswordField.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Realm War/src/view/components/TopIconPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Realm War/src/view/components/UserNameField.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Realm War/src/view/screens/HelpScreen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Realm War/src/view/screens/HomeScreen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Realm War/src/view/screens/LoginScreen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Realm War/src/view/screens/SettingsScreen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Realm War/src/view/screens/SignUpScreen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Realm War/src/view/screens/SplashScreen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Realm War/src/view/screens/UserPanelScreen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Realm War/src/view/styles/Fade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Realm War/src/view/styles/GameStyle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Realm War/src/view/utils/ImageUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Realm War/src/view/utils/SoundPlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/view/BlockView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/view/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/screens/GameView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/view/MenuView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/Launcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/controller/TurnManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/database/DBManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/database/DBManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/model/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/model/GameState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/view/screens/EndGamePanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/view/screens/GameView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/view/screens/MainMenuPanel.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,26 +77,62 @@
     &quot;accountId&quot;: &quot;b773372a-bf10-4c58-8fb0-6f7286f35e80&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
   <component name="ProjectId" id="2wUz2c8IHeF6InHvCNc2KH7k2R5" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/AMIN/Desktop/Realm-War",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SignUpScreen.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;ui-dev&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/AMIN/Desktop/calculator with JAVA/calculator/app&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="view.screens" />
+      <recent name="view.styles" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\AMIN\Desktop\Realm-War\Realm War\src\view\assets\image" />
+      <recent name="C:\Users\AMIN\Desktop\Realm-War\Realm War\src\view\assets" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\AMIN\Desktop\Realm-War\Realm War\src\view\assets\image\icons" />
+      <recent name="C:\Users\AMIN\Desktop\Realm-War\Realm War\src\view\assets\image" />
+      <recent name="C:\Users\AMIN\Desktop\Realm-War\Realm War\src\view\assets\font" />
+      <recent name="C:\Users\AMIN\Desktop\Realm-War\Realm War\src\view\assets\music" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Launcher" />
+      <module name="Realm-War" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -88,10 +151,89 @@
       <updated>1746110733549</updated>
       <workItem from="1746110734687" duration="31000" />
       <workItem from="1746110791222" duration="85000" />
+      <workItem from="1749113968383" duration="25148000" />
+      <workItem from="1749157809855" duration="8615000" />
+      <workItem from="1749212275211" duration="5106000" />
+      <workItem from="1749236545801" duration="42658000" />
+      <workItem from="1749378574681" duration="22004000" />
+      <workItem from="1749412550119" duration="3808000" />
+      <workItem from="1749451637024" duration="3533000" />
+      <workItem from="1749458634787" duration="17207000" />
+      <workItem from="1749552784373" duration="21472000" />
+      <workItem from="1749889907446" duration="28095000" />
+      <workItem from="1749987780777" duration="1007000" />
+      <workItem from="1750104821317" duration="8522000" />
+      <workItem from="1750261858181" duration="22445000" />
+      <workItem from="1750326828146" duration="7463000" />
+      <workItem from="1750532823159" duration="3913000" />
+      <workItem from="1750673930814" duration="4090000" />
+      <workItem from="1750678057435" duration="3121000" />
+      <workItem from="1750794383164" duration="2177000" />
+      <workItem from="1750857319301" duration="6942000" />
+      <workItem from="1750900367468" duration="20901000" />
+      <workItem from="1750962232290" duration="1974000" />
     </task>
+    <task id="LOCAL-00001" summary="simple edit">
+      <option name="closed" value="true" />
+      <created>1749053812472</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1749053812472</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="simple edit" />
+    <option name="LAST_COMMIT_MESSAGE" value="simple edit" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint type="java-exception">
+          <properties class="java.lang.RuntimeException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Realm War/src/view/screens/HomeScreen.java</url>
+          <line>78</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="errorLabel" language="JAVA" />
+        <watch expression="errorLabel" language="JAVA" />
+        <watch expression="errorLabel" language="JAVA" />
+        <watch expression="errorLabel" language="JAVA" />
+        <watch expression="errorLabel" language="JAVA" />
+        <watch expression="errorLabel" language="JAVA" />
+        <watch expression="errorLabel" language="JAVA" />
+        <watch expression="errorLabel" language="JAVA" />
+        <watch expression="errorLabel" language="JAVA" />
+        <watch expression="errorLabel" language="JAVA" />
+        <watch expression="errorLabel" language="JAVA" />
+        <watch expression="errorLabel" language="JAVA" />
+        <watch expression="errorLabel" language="JAVA" />
+        <watch expression="errorLabel" language="JAVA" />
+        <watch expression="errorLabel" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
