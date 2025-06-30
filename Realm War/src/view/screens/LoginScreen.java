@@ -1,6 +1,7 @@
 package view.screens;
 
 import controller.NavigationManager;
+import view.MainFrame;
 import view.components.*;
 import view.styles.GameStyle;
 
@@ -51,7 +52,7 @@ public class LoginScreen extends BaseBackgroundPanel {
         // عنوان
         gbc.gridwidth = 2;
         gbc.gridy = 0;
-        panel.add(GameStyle.create3DTitrLabel("Login") ,  gbc);
+        panel.add(GameStyle.create3DTitrLabel("Login"), gbc);
 
         // فیلدهای فرم
         gbc.gridy++;
@@ -187,9 +188,9 @@ public class LoginScreen extends BaseBackgroundPanel {
         errorLabel.setVisible(true);
     }
 
-    private void showSuccess(String message) {
+    private void showSuccess() {
         errorLabel.setForeground(SUCCESS_COLOR);
-        errorLabel.setText(message);
+        errorLabel.setText("Login successful! Redirecting...");
         errorLabel.setVisible(true);
     }
 
@@ -210,29 +211,26 @@ public class LoginScreen extends BaseBackgroundPanel {
 
     private void processLogin() {
         String username = userNameField.getText().trim();
-        char[] password = passwordField.getPassword();
+        String password = Arrays.toString(passwordField.getPassword()).trim();
 
         if (username.isEmpty()) {
             showError("⚠️ Please enter your username");
             return;
         }
 
-        if (password.length == 0) {
+        if (password.isEmpty()) {
             showError("⚠️ Please enter your password");
             return;
         }
 
-    /*boolean success = GameController.loginUser(username, password);
-    if (success) {
-        showSuccess("Login successful! Redirecting...");
-        Timer timer = new Timer(1500, _ -> NavigationManager.showPanel(HomeScreen.NAME));
-        timer.setRepeats(false);
-        timer.start();
-    } else {
-        showError("Invalid username or password");
-    }*/
-
-        Arrays.fill(password, '0'); // پاکسازی رمز عبور از حافظه
+        boolean success = MainFrame.userManager.login(username, password);
+        if (success) {
+            showSuccess();
+            Timer timer = new Timer(1500, _ -> NavigationManager.showPanel(HomeScreen.name, false));
+            timer.setRepeats(false);
+            timer.start();
+        } else {
+            showError("Invalid username or password");
+        }
     }
-
 }

@@ -1,6 +1,7 @@
 package view;
 
 import controller.NavigationManager;
+import controller.UserManager;
 import view.screens.*;
 import view.screens.SplashScreen;
 import view.utils.SoundPlayer;
@@ -18,6 +19,7 @@ public class MainFrame extends JFrame implements Runnable {
     public static MainFrame frame;
     public static String soundPath = "/view/assets/music/background_music.wav";
     public static SoundPlayer soundPlayer = new SoundPlayer(soundPath);
+    public static UserManager userManager = new UserManager();
 
     public MainFrame() {
         frame = this;

@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17960de7-8f39-4370-8d17-5c16542b5db6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Realm War/src/model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/controller/TurnManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/controller/UserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/controller/UserManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/view/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/view/screens/SignUpScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/screens/SignUpScreen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +45,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "game-logic",
+    "git-widget-placeholder": "ui-dev",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/AMIN/Desktop/Realm-War",
     "node.js.selected.package.tslint": "(autodetect)",

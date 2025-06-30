@@ -2,6 +2,9 @@ package view.screens;
 
 import controller.NavigationManager;
 import controller.GameController;
+import controller.UserManager;
+import model.User;
+import view.MainFrame;
 import view.components.*;
 import view.styles.GameStyle;
 
@@ -207,45 +210,23 @@ public class SignUpScreen extends BaseBackgroundPanel {
     private void processRegistration() {
         errorLabel.setVisible(true);
         StringBuilder errors = new StringBuilder("<html>");
-        boolean hasError = false;
 
-        if (!isValidUserName()) {
-            errors.append("• Invalid username<br>");
-            hasError = true;
-        }
-        if (!isValidUserPassword()) {
-            errors.append("• Password required<br>");
-            hasError = true;
-        }
-        if (!Arrays.equals(passwordField.getPassword(), confirmPasswordField.getPassword())) {
-            errors.append("• Passwords don't match<br>");
-            hasError = true;
-        }
-
-        if (hasError) {
+        if (MainFrame.userManager.register(errors ,
+                userNameField.getText().trim() ,
+                Arrays.toString(passwordField.getPassword()).trim() ,
+                Arrays.toString(confirmPasswordField.getPassword()).trim())
+        ) {
             errorLabel.setForeground(ERROR_COLOR);
             errorLabel.setText(errors.toString());
         } else {
             errorLabel.setForeground(SUCCESS_COLOR);
             errorLabel.setText("Registration successful!");
 
-            GameController.setCurrentUser(new UserManagement(
-                    userNameField.getText().trim(),
-                    passwordField.getPassword()
-            ));
+            new User(userNameField.getText().trim(), Arrays.toString(passwordField.getPassword()).trim());
 
             Timer timer = new Timer(1500, _ -> NavigationManager.showPanel(HomeScreen.name));
             timer.setRepeats(false);
             timer.start();
         }
-    }
-
-    private boolean isValidUserPassword() {
-        return passwordField.getPassword().length > 0;
-    }
-
-    private boolean isValidUserName() {
-        String username = userNameField.getText().trim();
-        return !username.isEmpty() && !UserManagement.isUserNameExist(username);
     }
 }
