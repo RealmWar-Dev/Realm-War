@@ -2,7 +2,6 @@ package view.screens;
 
 import controller.NavigationManager;
 import controller.GameController;
-import controller.UserManagement;
 import view.components.*;
 import view.styles.GameStyle;
 
