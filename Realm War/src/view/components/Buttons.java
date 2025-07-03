@@ -81,15 +81,6 @@ public abstract class Buttons {
         return button;
     }
 
-    /**
-     * تنظیم فونت پیش‌فرض برای دکمه‌ها
-     *
-     * @param font فونت جدید
-     */
-    public static void setGameFont(Font font) {
-        gameFont = font;
-    }
-
     public static void setBackgroundButton(String iconPath, JButton button) {
         try {
             // بارگذاری تصویر با اندازه مناسب

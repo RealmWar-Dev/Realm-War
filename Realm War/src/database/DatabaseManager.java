@@ -5,7 +5,6 @@ import model.Hasher;
 import model.User;
 
 import java.io.File;
-import java.security.MessageDigest;
 import java.sql.*;
 
 public class DatabaseManager {
@@ -54,18 +53,6 @@ public class DatabaseManager {
         } catch (SQLException e) {
             System.err.println("❌ خطا در ایجاد دیتابیس: " + e.getMessage());
             throw new RuntimeException("Failed to initialize database", e);
-        }
-    }
-
-    /**
-     * تست اتصال به دیتابیس
-     */
-    public boolean testConnection() {
-        try (Connection conn = DriverManager.getConnection(DATABASE_URL)) {
-            return conn != null && !conn.isClosed();
-        } catch (SQLException e) {
-            System.err.println("❌ اتصال به دیتابیس برقرار نشد: " + e.getMessage());
-            return false;
         }
     }
 

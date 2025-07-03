@@ -1,8 +1,6 @@
 package view.screens;
 
 
-import controller.GameController;
-
 import controller.NavigationManager;
 import controller.UserManager;
 import view.components.*;

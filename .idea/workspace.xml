@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17960de7-8f39-4370-8d17-5c16542b5db6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Realm War/src/database/DatabaseManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Realm War/src/model/Hasher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/Launcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/controller/UserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/controller/UserManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/database/DBManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/view/components/TopIconPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/components/TopIconPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/view/screens/HomeScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/screens/HomeScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/view/screens/SignUpScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/screens/SignUpScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/view/screens/UserPanelScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/screens/UserPanelScreen.java" afterDir="false" />
-    </list>
+    <list default="true" id="17960de7-8f39-4370-8d17-5c16542b5db6" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,6 +18,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="game-logic" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -56,21 +48,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Launcher.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;game-logic&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/AMIN/Desktop/Realm-War&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Launcher.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "ui-dev",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/AMIN/Desktop/Realm-War",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -107,5 +99,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="complete user and Database" />
+    <option name="LAST_COMMIT_MESSAGE" value="complete user and Database" />
   </component>
 </project>
