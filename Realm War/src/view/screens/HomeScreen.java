@@ -4,6 +4,7 @@ package view.screens;
 import controller.GameController;
 
 import controller.NavigationManager;
+import controller.UserManager;
 import view.components.*;
 import view.styles.GameStyle;
 
@@ -62,7 +63,7 @@ public class HomeScreen extends BaseBackgroundPanel {
         gbc.gridy = 0;
         JButton startButton = new Buttons.SimpleButton("Start");
         startButton.addActionListener(_ -> {
-            if (GameController.isLoggedIn()){
+            if (UserManager.isLoggedIn()){
             }
             else {
                 JOptionPane.showMessageDialog(null , "please Login Then Start" , "You are not logged in !" , JOptionPane.ERROR_MESSAGE );
@@ -71,9 +72,9 @@ public class HomeScreen extends BaseBackgroundPanel {
         buttonPanel.add(startButton, gbc);
 
         gbc.gridy++;
-        userOrLoginButton = GameController.isLoggedIn() ? new Buttons.SimpleButton("User") : new Buttons.SimpleButton("Login");
+        userOrLoginButton = UserManager.isLoggedIn() ? new Buttons.SimpleButton("User") : new Buttons.SimpleButton("Login");
         userOrLoginButton.addActionListener(_ -> {
-                if (!GameController.isLoggedIn())
+                if (!UserManager.isLoggedIn())
                     NavigationManager.showPanel(LoginScreen.name , false );
                 else
                     NavigationManager.showPanel(UserPanelScreen.name );

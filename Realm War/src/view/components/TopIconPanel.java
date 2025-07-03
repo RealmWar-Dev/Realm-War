@@ -1,7 +1,7 @@
 package view.components;
 
-import controller.GameController;
 import controller.NavigationManager;
+import controller.UserManager;
 import view.MainFrame;
 import view.screens.HelpScreen;
 import view.screens.LoginScreen;
@@ -104,12 +104,12 @@ public class TopIconPanel extends JPanel {
     }
 
     private void handleUser(ActionEvent e) {
-        String targetPanel = GameController.isLoggedIn() ? UserPanelScreen.name : LoginScreen.name;
+        String targetPanel = UserManager.isLoggedIn() ? UserPanelScreen.name : LoginScreen.name;
         NavigationManager.showPanel(targetPanel , false);
     }
 
     public void updateUserButtonIcon() {
-        String iconPath = GameController.isLoggedIn() ? USER_LOGIN_ICON_PATH : USER_LOGOUT_ICON_PATH;
+        String iconPath = UserManager.isLoggedIn() ? USER_LOGIN_ICON_PATH : USER_LOGOUT_ICON_PATH;
         Buttons.setBackgroundButton(iconPath, userButton);
     }
 

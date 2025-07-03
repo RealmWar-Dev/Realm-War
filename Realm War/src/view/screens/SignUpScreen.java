@@ -1,8 +1,7 @@
 package view.screens;
 
 import controller.NavigationManager;
-import controller.GameController;
-import controller.UserManager;
+import database.DatabaseManager;
 import model.User;
 import view.MainFrame;
 import view.components.*;
@@ -222,6 +221,7 @@ public class SignUpScreen extends BaseBackgroundPanel {
             errorLabel.setForeground(SUCCESS_COLOR);
             errorLabel.setText("Registration successful!");
 
+            DatabaseManager.registerUser(name, String.valueOf(passwordField.getPassword()).trim());
             new User(userNameField.getText().trim(), Arrays.toString(passwordField.getPassword()).trim());
 
             Timer timer = new Timer(1500, _ -> NavigationManager.showPanel(HomeScreen.name));
