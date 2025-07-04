@@ -149,13 +149,13 @@ public class DatabaseManager {
      */
     public static void updateUserStats(User user) {
         String sql = """
-        UPDATE user 
-        SET wins = ?, 
-            losses = ?, 
-            level = ?, 
-            score = ? 
+        UPDATE user\s
+        SET wins = ?,\s
+            losses = ?,\s
+            level = ?,\s
+            score = ?\s
         WHERE username = ?
-        """;
+       \s""";
 
         try (Connection conn = DriverManager.getConnection(DATABASE_URL);
              PreparedStatement pstmt = conn.prepareStatement(sql)) {

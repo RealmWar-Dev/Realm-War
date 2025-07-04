@@ -29,14 +29,14 @@ public class MainFrame extends JFrame implements Runnable {
         frame = this;
         setTitle("Realm War");
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-        WindowListener windowListener = new WindowAdapter() {
+        addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
                 if (UserManager.isLoggedIn())
                     DatabaseManager.updateUserStats(UserManager.getCurrentUser());
 
                 System.exit(0);
             }
-        };
+        });
 
         setSize(800, 600);
         setLocationRelativeTo(null);
