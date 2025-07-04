@@ -2,6 +2,7 @@ package view.screens;
 
 import controller.NavigationManager;
 import controller.UserManager;
+import database.DatabaseManager;
 import model.User;
 import view.components.BaseBackgroundPanel;
 import view.components.TopIconPanel;
@@ -69,6 +70,7 @@ public class UserPanelScreen extends BaseBackgroundPanel {
         logoutButton.setFont(new Font("Tahoma", Font.BOLD, 14));
         logoutButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         logoutButton.addActionListener(_ -> {
+            DatabaseManager.updateUserStats(UserManager.getCurrentUser());
             UserManager.logout();
             NavigationManager.showPanel("HOME");
         });

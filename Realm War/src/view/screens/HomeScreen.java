@@ -3,6 +3,7 @@ package view.screens;
 
 import controller.NavigationManager;
 import controller.UserManager;
+import database.DatabaseManager;
 import view.components.*;
 import view.styles.GameStyle;
 
@@ -86,7 +87,13 @@ public class HomeScreen extends BaseBackgroundPanel {
 
         gbc.gridy++;
         JButton exitButton = new Buttons.SimpleButton("Exit");
-        exitButton.addActionListener(_ -> System.exit(0));
+        exitButton.addActionListener(_ -> {
+            if (UserManager.isLoggedIn())
+                DatabaseManager.updateUserStats(UserManager.getCurrentUser());
+
+            System.exit(0);
+        });
+
         buttonPanel.add(exitButton, gbc);
 
         buttonPanel.setBackground(new Color(255, 255, 255, 0));

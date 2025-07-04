@@ -2,12 +2,16 @@ package view;
 
 import controller.NavigationManager;
 import controller.UserManager;
+import database.DatabaseManager;
 import view.screens.*;
 import view.screens.SplashScreen;
 import view.utils.SoundPlayer;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.util.Objects;
 import java.util.Stack;
 
@@ -24,7 +28,16 @@ public class MainFrame extends JFrame implements Runnable {
     public MainFrame() {
         frame = this;
         setTitle("Realm War");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        WindowListener windowListener = new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                if (UserManager.isLoggedIn())
+                    DatabaseManager.updateUserStats(UserManager.getCurrentUser());
+
+                System.exit(0);
+            }
+        };
+
         setSize(800, 600);
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());

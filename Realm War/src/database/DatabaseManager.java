@@ -143,4 +143,38 @@ public class DatabaseManager {
             throw new RuntimeException("خطا در بررسی نام کاربری", e);
         }
     }
+
+    /**
+     * به‌روزرسانی اطلاعات کاربر با استفاده از شیء User
+     */
+    public static void updateUserStats(User user) {
+        String sql = """
+        UPDATE user 
+        SET wins = ?, 
+            losses = ?, 
+            level = ?, 
+            score = ? 
+        WHERE username = ?
+        """;
+
+        try (Connection conn = DriverManager.getConnection(DATABASE_URL);
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setInt(1, user.getWins());
+            pstmt.setInt(2, user.getLosses());
+            pstmt.setInt(3, user.getLevel());
+            pstmt.setInt(4, user.getScore());
+            pstmt.setString(5, user.getUsername().trim());
+
+            int rowsUpdated = pstmt.executeUpdate();
+            if (rowsUpdated == 0) {
+                throw new RuntimeException("کاربری با این نام پیدا نشد");
+            }
+
+        } catch (SQLException e) {
+            System.err.println("❌ خطا در به‌روزرسانی اطلاعات کاربر: " + e.getMessage());
+            throw new RuntimeException("خطا در به‌روزرسانی اطلاعات کاربر", e);
+        }
+    }
+
 }
