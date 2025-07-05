@@ -9,11 +9,8 @@ import view.utils.SoundPlayer;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.util.Objects;
-import java.util.Stack;
+import java.awt.event.*;
+import java.util.*;
 
 public class MainFrame extends JFrame implements Runnable {
     public static CardLayout cardLayout = new CardLayout();
@@ -62,6 +59,7 @@ public class MainFrame extends JFrame implements Runnable {
             case "LOGIN" -> panel = new LoginScreen();
             case "SIGNUP" -> panel = new SignUpScreen();
             case "USER_PANEL" -> panel = new UserPanelScreen();
+            case "GAME" -> panel = new GameScreen();
             default -> {
                 System.out.println("پنل ناشناخته: " + panelName);
                 return;

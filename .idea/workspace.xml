@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17960de7-8f39-4370-8d17-5c16542b5db6" name="Changes" comment="complete HelpScreen" />
+    <list default="true" id="17960de7-8f39-4370-8d17-5c16542b5db6" name="Changes" comment="done update user in Database when exit or logout">
+      <change afterPath="$PROJECT_DIR$/Realm War/src/view/screens/GameScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/view/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/view/components/Buttons.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/components/Buttons.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/view/screens/HomeScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/screens/HomeScreen.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,6 +43,9 @@
     &quot;accountId&quot;: &quot;b773372a-bf10-4c58-8fb0-6f7286f35e80&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -48,27 +57,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Launcher.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "ui-dev",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/AMIN/Desktop/Realm-War",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Launcher.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;ui-dev&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/AMIN/Desktop/Realm-War&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "ChangesTree.GroupingKeys": [
-      "directory",
-      "module"
+  &quot;keyToStringList&quot;: {
+    &quot;ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;,
+      &quot;module&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -89,6 +98,7 @@
       <workItem from="1746110791222" duration="85000" />
       <workItem from="1751548720768" duration="2688000" />
       <workItem from="1751581034268" duration="532000" />
+      <workItem from="1751628651450" duration="5906000" />
     </task>
     <task id="LOCAL-00001" summary="complete HelpScreen">
       <option name="closed" value="true" />
@@ -98,7 +108,23 @@
       <option name="project" value="LOCAL" />
       <updated>1751582265603</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="done update user in Database when exit or logout">
+      <option name="closed" value="true" />
+      <created>1751629455419</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1751629455419</updated>
+    </task>
+    <task id="LOCAL-00003" summary="done update user in Database when exit or logout">
+      <option name="closed" value="true" />
+      <created>1751629606523</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1751629606523</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -118,6 +144,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="complete user and Database" />
     <MESSAGE value="complete HelpScreen" />
-    <option name="LAST_COMMIT_MESSAGE" value="complete HelpScreen" />
+    <MESSAGE value="done update user in Database when exit or logout" />
+    <option name="LAST_COMMIT_MESSAGE" value="done update user in Database when exit or logout" />
   </component>
 </project>
