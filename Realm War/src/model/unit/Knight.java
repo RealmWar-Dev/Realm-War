@@ -25,44 +25,28 @@ public class Knight extends Unit {
 
     @Override
     public boolean move(Block targetBlock) {
-        if (hasMoved) {
-            return false;
-        }
-        if (targetBlock == null || targetBlock.getBlockType() == Block.BlockType.VOID ||
-                (targetBlock.getKingdom() != null && targetBlock.getKingdom() != ownerKingdom)) {
-            return false;
-        }
-
-        int distance = calculateDistance(currentBlockLocation, targetBlock);
-        if (distance > movementRange) {
-            return false;
-        }
-
-        this.currentBlockLocation.removeUnit();
-        this.currentBlockLocation = targetBlock;
-        this.currentBlockLocation.setUnit(this);
-        this.hasMoved = true;
-        return true;
+        // Use the common move logic from the Unit abstract class
+        return super.move(targetBlock);
     }
 
 
     @Override
     public int attack(Unit targetUnit) {
-
         if (hasAttacked) {
             return 0;
         }
         if (targetUnit == null || targetUnit.getOwnerKingdom() == ownerKingdom) {
-            return 0;
+            return 0; // Cannot attack null or friendly units
         }
 
         int distance = calculateDistance(currentBlockLocation, targetUnit.getCurrentBlockLocation());
         if (distance > attackRange) {
-            return 0;
+            return 0; // Target out of attack range
         }
 
         int effectiveAttackPower = this.attackPower;
 
+        // Apply Forest Block attack advantage
         if (currentBlockLocation instanceof ForestBlock) {
             ForestBlock forestBlock = (ForestBlock) currentBlockLocation;
             if (!forestBlock.isForestRemoved()) {
@@ -70,6 +54,7 @@ public class Knight extends Unit {
             }
         }
 
+        // Apply Forest Block defense advantage to target
         if (targetUnit.getCurrentBlockLocation() instanceof ForestBlock) {
             ForestBlock targetForestBlock = (ForestBlock) targetUnit.getCurrentBlockLocation();
             if (!targetForestBlock.isForestRemoved()) {
