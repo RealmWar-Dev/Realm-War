@@ -1,8 +1,11 @@
 package view.screens;
 
 import controller.NavigationManager;
-import view.MainFrame;
-import view.components.*;
+import controller.UserManager;
+import model.User;
+import view.components.BaseBackgroundPanel;
+import view.components.PasswordField;
+import view.components.UserNameField;
 import view.styles.GameStyle;
 
 import javax.swing.*;
@@ -13,99 +16,125 @@ import java.awt.event.MouseEvent;
 import java.util.Arrays;
 
 public class LoginScreen extends BaseBackgroundPanel {
-    private PasswordField passwordField;
-    private UserNameField userNameField;
-    private JTextPane errorLabel;
-
     public static final String name = "LOGIN";
-    private static final Font LABEL_FONT = new Font("Segoe UI", Font.PLAIN, 18);
-    private static final Dimension FIELD_SIZE = new Dimension(250, 35);
-    private static final Color ERROR_COLOR = new Color(255, 80, 80);
-    private static final Color SUCCESS_COLOR = new Color(0, 255, 128);
 
+    private static final Font LABEL_FONT = new Font("Segoe UI", Font.PLAIN, 18);
+    private static final Font BUTTON_FONT = new Font("Segoe UI", Font.BOLD, 14);
+    private static final Font ERROR_FONT = new Font("Segoe UI Emoji", Font.PLAIN, 14);
+
+    private static final Dimension FIELD_SIZE = new Dimension(250, 35);
     private static final Dimension BUTTON_SIZE_LARGE = new Dimension(180, 45);
     private static final Dimension BUTTON_SIZE_SMALL = new Dimension(120, 40);
-    private static final Color BUTTON_PRIMARY_COLOR = new Color(0, 122, 255);
-    private static final Color BUTTON_SECONDARY_COLOR = new Color(71, 71, 81);
 
+    private static final Color ERROR_COLOR = new Color(0xFF5252);
+    private static final Color SUCCESS_COLOR = new Color(0x00C853);
+    private static final Color BUTTON_PRIMARY_COLOR = new Color(0x007AFF);
+    private static final Color BUTTON_SECONDARY_COLOR = new Color(0x3A3A3A);
+    private static final Color GLASS_BG_COLOR = new Color(255, 255, 255, 40);
+    private static final Color TEXT_COLOR = new Color(220, 220, 220);
+
+    private UserNameField userNameField;
+    private PasswordField passwordField;
+    private JTextPane errorLabel;
+    protected User user;
 
     public LoginScreen() {
         super(false, false);
         setName(name);
         initializeComponents();
     }
-
     @Override
     public void initializeComponents() {
         add(createMainPanel(), BorderLayout.CENTER);
     }
 
     private JPanel createMainPanel() {
-        JPanel panel = new JPanel(new GridBagLayout());
-        panel.setOpaque(false);
-        panel.setBorder(new EmptyBorder(0, 50, 50, 50));
+        JPanel wrapper = new JPanel(new GridBagLayout());
+        wrapper.setOpaque(false);
 
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(5, 10, 5, 20);
-        gbc.anchor = GridBagConstraints.CENTER;
+        JPanel glassPanel = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                Graphics2D g2d = (Graphics2D) g.create();
+                g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+                g2d.setComposite(AlphaComposite.SrcOver.derive(0.85f));
+                g2d.setColor(GLASS_BG_COLOR);
+                g2d.fillRoundRect(0, 0, getWidth(), getHeight(), 25, 25);
+                g2d.dispose();
+            }
+        };
+        glassPanel.setLayout(new BoxLayout(glassPanel, BoxLayout.Y_AXIS));
+        glassPanel.setOpaque(false);
+        glassPanel.setBorder(new EmptyBorder(30, 40, 30, 40));
 
-        // عنوان
-        gbc.gridwidth = 2;
-        gbc.gridy = 0;
-        panel.add(GameStyle.create3DTitrLabel("Login"), gbc);
+        // تیتر
+        JLabel title = GameStyle.create3DTitrLabel("Login");
+        title.setAlignmentX(Component.CENTER_ALIGNMENT);
+        glassPanel.add(title);
+        glassPanel.add(Box.createVerticalStrut(20));
 
-        // فیلدهای فرم
-        gbc.gridy++;
-        panel.add(createFieldsPanel(), gbc);
+        // فرم ورود
+        glassPanel.add(createFormPanel());
+        glassPanel.add(Box.createVerticalStrut(10));
 
-        // پیام خطا
-        gbc.gridy++;
-        panel.add(createErrorPanel(), gbc);
+        // پیام خطا یا موفقیت
+        glassPanel.add(createErrorPanel());
+        glassPanel.add(Box.createVerticalStrut(15));
 
         // دکمه‌ها
-        gbc.gridy++;
-        panel.add(createButtonPanel(), gbc);
+        glassPanel.add(createButtonPanel());
 
-        return panel;
+        wrapper.add(glassPanel);
+        return wrapper;
     }
 
-
-    private JPanel createFieldsPanel() {
-        JPanel panel = new JPanel(new GridBagLayout());
-        panel.setOpaque(false);
+    private JPanel createFormPanel() {
+        JPanel formPanel = new JPanel(new GridBagLayout());
+        formPanel.setOpaque(false);
 
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(10, 10, 10, 20);
-        gbc.anchor = GridBagConstraints.LINE_END;
+        gbc.insets = new Insets(8, 8, 8, 8);
+        gbc.fill = GridBagConstraints.HORIZONTAL;
 
-        // فیلد نام کاربری
         userNameField = new UserNameField();
-        userNameField.setPreferredSize(FIELD_SIZE);
-
-        // فیلد رمز عبور
         passwordField = new PasswordField();
-        passwordField.setPreferredSize(FIELD_SIZE);
         passwordField.setEchoChar('*');
 
-        // اضافه کردن کامپوننت‌ها
+        Arrays.asList(userNameField, passwordField).forEach(field -> {
+            field.setPreferredSize(FIELD_SIZE);
+            field.setMinimumSize(FIELD_SIZE);
+        });
+
+        // Username
         gbc.gridx = 0;
         gbc.gridy = 0;
-        panel.add(createFormLabel("Username:"), gbc);
+        gbc.anchor = GridBagConstraints.EAST;
+        formPanel.add(createFormLabel("Username:"), gbc);
 
         gbc.gridx = 1;
-        gbc.anchor = GridBagConstraints.LINE_START;
-        panel.add(userNameField, gbc);
+        gbc.anchor = GridBagConstraints.WEST;
+        formPanel.add(userNameField, gbc);
 
+        // Password
         gbc.gridx = 0;
         gbc.gridy = 1;
-        gbc.anchor = GridBagConstraints.LINE_END;
-        panel.add(createFormLabel("Password:"), gbc);
+        gbc.anchor = GridBagConstraints.EAST;
+        formPanel.add(createFormLabel("Password:"), gbc);
 
         gbc.gridx = 1;
-        gbc.anchor = GridBagConstraints.LINE_START;
-        panel.add(passwordField, gbc);
+        gbc.anchor = GridBagConstraints.WEST;
+        formPanel.add(passwordField, gbc);
 
-        return panel;
+        return formPanel;
+    }
+
+    private JLabel createFormLabel(String text) {
+        JLabel label = new JLabel(text);
+        label.setFont(LABEL_FONT);
+        label.setForeground(TEXT_COLOR);
+        label.setHorizontalAlignment(SwingConstants.RIGHT);
+        return label;
     }
 
     private JPanel createErrorPanel() {
@@ -116,8 +145,8 @@ public class LoginScreen extends BaseBackgroundPanel {
         errorLabel = new JTextPane();
         errorLabel.setEditable(false);
         errorLabel.setOpaque(false);
+        errorLabel.setFont(ERROR_FONT);
         errorLabel.setForeground(ERROR_COLOR);
-        errorLabel.setFont(new Font("Monospaced", Font.PLAIN, 14));
         errorLabel.setBorder(BorderFactory.createEmptyBorder(4, 8, 4, 8));
         errorLabel.setVisible(false);
 
@@ -125,16 +154,22 @@ public class LoginScreen extends BaseBackgroundPanel {
         return panel;
     }
 
-    private JLabel createFormLabel(String text) {
-        JLabel label = new JLabel(text);
-        label.setFont(LABEL_FONT);
-        label.setForeground(new Color(220, 220, 220));
-        label.setHorizontalAlignment(SwingConstants.RIGHT);
-        return label;
+    private JPanel createButtonPanel() {
+        JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 0));
+        panel.setOpaque(false);
+
+        JButton signUpButton = createMagicButton("Sign Up", BUTTON_SECONDARY_COLOR, BUTTON_SIZE_SMALL);
+        signUpButton.addActionListener(_ -> NavigationManager.showPanel(SignUpScreen.name, false));
+
+        JButton loginButton = createMagicButton("Login", BUTTON_PRIMARY_COLOR, BUTTON_SIZE_LARGE);
+        loginButton.addActionListener(_ -> processLogin());
+
+        panel.add(signUpButton);
+        panel.add(loginButton);
+        return panel;
     }
 
     private JButton createMagicButton(String text, Color backgroundColor, Dimension size) {
-        Font font = new Font("Segoe UI", Font.BOLD, 14);
         JButton button = new JButton(text) {
             @Override
             protected void paintComponent(Graphics g) {
@@ -158,9 +193,9 @@ public class LoginScreen extends BaseBackgroundPanel {
             }
         };
 
-        button.setFont(font);
+        button.setFont(BUTTON_FONT);
         button.setPreferredSize(size);
-        button.setForeground(new Color(220, 220, 220));
+        button.setForeground(TEXT_COLOR);
         button.setContentAreaFilled(false);
         button.setBorderPainted(false);
         button.setFocusPainted(false);
@@ -182,36 +217,9 @@ public class LoginScreen extends BaseBackgroundPanel {
         return button;
     }
 
-    private void showError(String message) {
-        errorLabel.setForeground(ERROR_COLOR);
-        errorLabel.setText(message);
-        errorLabel.setVisible(true);
-    }
-
-    private void showSuccess() {
-        errorLabel.setForeground(SUCCESS_COLOR);
-        errorLabel.setText("Login successful! Redirecting...");
-        errorLabel.setVisible(true);
-    }
-
-    private JPanel createButtonPanel() {
-        JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 0));
-        panel.setOpaque(false);
-
-        JButton loginButton = createMagicButton("Sign Up", BUTTON_SECONDARY_COLOR, BUTTON_SIZE_SMALL);
-        loginButton.addActionListener(_ -> NavigationManager.showPanel(SignUpScreen.name, false));
-
-        JButton signUpButton = createMagicButton("Login", BUTTON_PRIMARY_COLOR, BUTTON_SIZE_LARGE);
-        signUpButton.addActionListener(_ -> processLogin());
-
-        panel.add(loginButton);
-        panel.add(signUpButton);
-        return panel;
-    }
-
     private void processLogin() {
         String username = userNameField.getText().trim();
-        String password = Arrays.toString(passwordField.getPassword()).trim();
+        String password = new String(passwordField.getPassword()).trim();
 
         if (username.isEmpty()) {
             showError("⚠️ Please enter your username");
@@ -223,14 +231,26 @@ public class LoginScreen extends BaseBackgroundPanel {
             return;
         }
 
-        boolean success = MainFrame.userManager.login(username, password);
-        if (success) {
+        user = UserManager.login(username, password);
+        if (user != null) {
             showSuccess();
             Timer timer = new Timer(1500, _ -> NavigationManager.showPanel(HomeScreen.name, false));
             timer.setRepeats(false);
             timer.start();
         } else {
-            showError("Invalid username or password");
+            showError("❌ Invalid username or password");
         }
+    }
+
+    private void showError(String message) {
+        errorLabel.setForeground(ERROR_COLOR);
+        errorLabel.setText(message);
+        errorLabel.setVisible(true);
+    }
+
+    private void showSuccess() {
+        errorLabel.setForeground(SUCCESS_COLOR);
+        errorLabel.setText("✅ Login successful! Redirecting...");
+        errorLabel.setVisible(true);
     }
 }

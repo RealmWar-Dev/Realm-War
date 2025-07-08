@@ -20,7 +20,6 @@ public class MainFrame extends JFrame implements Runnable {
     public static MainFrame frame;
     public static String soundPath = "/view/assets/music/background_music.wav";
     public static SoundPlayer soundPlayer = new SoundPlayer(soundPath);
-    public static UserManager userManager = new UserManager();
 
     public MainFrame() {
         frame = this;
@@ -59,6 +58,7 @@ public class MainFrame extends JFrame implements Runnable {
             case "LOGIN" -> panel = new LoginScreen();
             case "SIGNUP" -> panel = new SignUpScreen();
             case "USER_PANEL" -> panel = new UserPanelScreen();
+            case "MATCH_ROOM" -> panel = new MatchRoomScreen();
             case "GAME" -> panel = new GameScreen();
             default -> {
                 System.out.println("پنل ناشناخته: " + panelName);

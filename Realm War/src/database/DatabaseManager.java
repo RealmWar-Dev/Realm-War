@@ -44,7 +44,7 @@ public class DatabaseManager {
                     password BLOB NOT NULL,
                     wins INTEGER DEFAULT 0,
                     losses INTEGER DEFAULT 0,
-                    level INTEGER DEFAULT 0,
+                    level INTEGER DEFAULT 1,
                     score INTEGER DEFAULT 0
                 );
                 """;
@@ -60,12 +60,6 @@ public class DatabaseManager {
      * ثبت کاربر جدید
      */
     public static void registerUser(String username, String password) {
-
-        // بررسی وجود کاربر
-        if (usernameExists(username)) {
-            throw new IllegalArgumentException("نام کاربری قبلاً انتخاب شده است");
-        }
-
         try {
             // هش کردن رمز عبور
             byte[] hashedPassword = Hasher.hashPassword(password);
@@ -78,12 +72,8 @@ public class DatabaseManager {
                 pstmt.setString(1, username.trim());
                 pstmt.setBytes(2, hashedPassword);
                 pstmt.executeUpdate();
-
-                // تنظیم کاربر جاری
-                UserManager.setCurrentUser(new User(username, password));
             }
         } catch (SQLException e) {
-            System.err.println("❌ خطا در ثبت کاربر: " + e.getMessage());
             throw new RuntimeException("خطا در ثبت کاربر", e);
         }
     }
@@ -91,7 +81,7 @@ public class DatabaseManager {
     /**
      * ورود کاربر به سیستم
      */
-    public static boolean loginUser(String username, String password) throws SQLException {
+    public static User loginUser(String username, String password) throws SQLException {
 
         String sql = "SELECT * FROM user WHERE username = ?";
 
@@ -108,7 +98,7 @@ public class DatabaseManager {
 
                     if (Hasher.verifyPassword(password, storedHashedPassword)) {
                         // ایجاد شیء کاربر با اطلاعات کامل
-                        User user = new User(
+                        return new User(
                                 username,
                                 password,
                                 rs.getInt("level"),
@@ -116,11 +106,9 @@ public class DatabaseManager {
                                 rs.getInt("losses"),
                                 rs.getInt("score")
                         );
-                        UserManager.setCurrentUser(user);
-                        return true;
                     }
                 }
-                return false;
+                return null;
             }
         }
     }
@@ -139,7 +127,6 @@ public class DatabaseManager {
                 return rs.next();
             }
         } catch (SQLException e) {
-            System.err.println("❌ خطا در بررسی نام کاربری: " + e.getMessage());
             throw new RuntimeException("خطا در بررسی نام کاربری", e);
         }
     }
@@ -172,7 +159,6 @@ public class DatabaseManager {
             }
 
         } catch (SQLException e) {
-            System.err.println("❌ خطا در به‌روزرسانی اطلاعات کاربر: " + e.getMessage());
             throw new RuntimeException("خطا در به‌روزرسانی اطلاعات کاربر", e);
         }
     }

@@ -4,12 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17960de7-8f39-4370-8d17-5c16542b5db6" name="Changes" comment="done update user in Database when exit or logout">
-      <change afterPath="$PROJECT_DIR$/Realm War/src/view/screens/GameScreen.java" afterDir="false" />
+    <list default="true" id="17960de7-8f39-4370-8d17-5c16542b5db6" name="Changes" comment="init game screen">
+      <change afterPath="$PROJECT_DIR$/Realm War/src/controller/MatchRoomManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Realm War/src/controller/TurnTimerManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Realm War/src/model/GameStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Realm War/src/view/components/TopBarPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Realm War/src/view/mapDetals/BottomBarPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Realm War/src/view/mapDetals/MapPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Realm War/src/view/mapDetals/SidePanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Realm War/src/view/mapDetals/TopBarPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Realm War/src/view/screens/MatchRoomScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/Launcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/controller/GameManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/controller/UserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/controller/UserManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/database/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/database/DatabaseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/model/GameState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/model/kingdom/Kingdom.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/model/kingdom/Kingdom.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Realm War/src/view/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/view/components/Buttons.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/components/Buttons.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/view/screens/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/screens/GameScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Realm War/src/view/screens/HomeScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/screens/HomeScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/view/screens/LoginScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/screens/LoginScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/view/screens/SignUpScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/screens/SignUpScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/view/screens/UserPanelScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/screens/UserPanelScreen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,9 +60,6 @@
     &quot;accountId&quot;: &quot;b773372a-bf10-4c58-8fb0-6f7286f35e80&quot;
   }
 }</component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -70,14 +84,18 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  },
-  &quot;keyToStringList&quot;: {
-    &quot;ChangesTree.GroupingKeys&quot;: [
-      &quot;directory&quot;,
-      &quot;module&quot;
-    ]
   }
 }</component>
+  <component name="RunManager">
+    <configuration name="Launcher" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="UNNAMED_CLASS_CONFIGURATION" value="true" />
+      <option name="MAIN_CLASS_NAME" value="Launcher" />
+      <module name="Realm-War" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -98,33 +116,11 @@
       <workItem from="1746110791222" duration="85000" />
       <workItem from="1751548720768" duration="2688000" />
       <workItem from="1751581034268" duration="532000" />
-      <workItem from="1751628651450" duration="5906000" />
+      <workItem from="1751888013225" duration="5957000" />
+      <workItem from="1751895632147" duration="1222000" />
+      <workItem from="1751973099327" duration="11696000" />
+      <workItem from="1752001842369" duration="5281000" />
     </task>
-    <task id="LOCAL-00001" summary="complete HelpScreen">
-      <option name="closed" value="true" />
-      <created>1751582265603</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1751582265603</updated>
-    </task>
-    <task id="LOCAL-00002" summary="done update user in Database when exit or logout">
-      <option name="closed" value="true" />
-      <created>1751629455419</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1751629455419</updated>
-    </task>
-    <task id="LOCAL-00003" summary="done update user in Database when exit or logout">
-      <option name="closed" value="true" />
-      <created>1751629606523</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1751629606523</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,11 +136,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="complete user and Database" />
-    <MESSAGE value="complete HelpScreen" />
-    <MESSAGE value="done update user in Database when exit or logout" />
-    <option name="LAST_COMMIT_MESSAGE" value="done update user in Database when exit or logout" />
   </component>
 </project>

@@ -18,20 +18,23 @@ public class UserManager {
      * @param confirmPassword تکرار رمز عبور
      * @return true اگر ثبت نام موفقیت‌آمیز باشد، false در غیر این صورت
      */
-    public boolean register(StringBuilder errors, String username, String password, String confirmPassword) {
+    public static User register(StringBuilder errors, String username, String password, String confirmPassword) {
         errors.setLength(0); // پاک کردن خطاهای قبلی
         boolean isValid = validateRegistration(errors, username, password, confirmPassword);
+        User user;
 
         if (isValid) {
             try {
                 DatabaseManager.registerUser(username, password);
-                return true;
+                user = login(username, password);
+                setCurrentUser(user);
+                return user;
             } catch (Exception e) {
-                errors.append("• خطا در ثبت نام: ").append(e.getMessage());
-                return false;
+                errors.append("•Registration error: ").append(e.getMessage());
+                return null;
             }
         }
-        return false;
+        return null;
     }
 
     /**
@@ -40,16 +43,13 @@ public class UserManager {
      * @param password رمز عبور
      * @return true اگر ورود موفقیت‌آمیز باشد، false در غیر این صورت
      */
-    public boolean login(String username, String password) {
+    public static User login(String username, String password) {
         try {
-            boolean loginSuccessful = DatabaseManager.loginUser(username, password);
-            if (loginSuccessful) {
-                setLogIn(true);
-            }
-            return loginSuccessful;
+            User user = DatabaseManager.loginUser(username, password);
+            setCurrentUser(user);
+            return user;
         } catch (SQLException e) {
-            System.err.println("خطا در ورود به سیستم: " + e.getMessage());
-            return false;
+            throw new RuntimeException(e);
         }
     }
 
@@ -57,8 +57,7 @@ public class UserManager {
      * خروج کاربر از سیستم
      */
     public static void logout() {
-        currentUser = null;
-        setLogIn(false);
+        setCurrentUser(null);
     }
 
     /**
@@ -91,33 +90,34 @@ public class UserManager {
     /**
      * اعتبارسنجی اطلاعات ثبت نام
      */
-    private boolean validateRegistration(StringBuilder errors, String username, String password, String confirmPassword) {
+    private static boolean validateRegistration(StringBuilder errors, String username, String password, String confirmPassword) {
         boolean isValid = true;
 
         if (username == null || username.trim().isEmpty()) {
-            errors.append("• نام کاربری نمی‌تواند خالی باشد<br>");
+            errors.append("• Username cannot be empty<br>");
             isValid = false;
         } else if (username.length() > 12) {
-            errors.append("• نام کاربری باید حداکثر ۱۲ کاراکتر باشد<br>");
+            errors.append("• Username must be at most 12 characters long<br>");
             isValid = false;
         }
 
         if (password == null || password.isEmpty()) {
-            errors.append("• رمز عبور نمی‌تواند خالی باشد<br>");
+            errors.append("• Password cannot be empty<br>");
             isValid = false;
-        } else if (password.length() < 8) {
-            errors.append("• رمز عبور باید حداقل ۸ کاراکتر باشد<br>");
+        }/* else if (password.length() < 8) {
+            errors.append("• Password must be at least 8 characters long<br>");
             isValid = false;
-        }
+        }*/
 
         assert password != null;
         if (!password.equals(confirmPassword)) {
-            errors.append("• رمز عبور و تکرار آن مطابقت ندارند<br>");
+            errors.append("• Password and confirmation do not match<br>");
             isValid = false;
         }
 
         return isValid;
     }
+
 
     /**
      * به‌روزرسانی وضعیت ورود کاربر

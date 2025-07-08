@@ -63,7 +63,7 @@ public class HomeScreen extends BaseBackgroundPanel {
         JButton startButton = new Buttons.SimpleButton("Start");
         startButton.addActionListener(_ -> {
             if (UserManager.isLoggedIn()){
-                NavigationManager.showPanel("GAME" , false);
+                NavigationManager.showPanel(MatchRoomScreen.name , false);
             }
             else {
                 JOptionPane.showMessageDialog(null , "please Login Then Start" , "You are not logged in !" , JOptionPane.ERROR_MESSAGE );
