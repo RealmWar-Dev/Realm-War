@@ -1,6 +1,7 @@
 package controller;
 
 import view.MainFrame;
+import view.screens.GameScreen;
 import view.screens.HomeScreen;
 import view.styles.Fade;
 
@@ -79,5 +80,11 @@ public class NavigationManager {
      */
     private static void navigateToHome() {
         showPanel(HomeScreen.name);
+    }
+
+
+    public static void startGame(MatchRoomManager matchRoom) {
+        MainFrame.createAndShowStartPanel(matchRoom);
+        new Fade(GameScreen.name);
     }
 }

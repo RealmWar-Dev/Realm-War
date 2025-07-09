@@ -1,5 +1,7 @@
 package model;
 
+import java.awt.*;
+
 public class User {
     private String username;
     private String password;
@@ -7,6 +9,7 @@ public class User {
     private int score;
     private int wins;
     private int losses;
+    private Color color;
     /**
      * سازنده اصلی برای ایجاد کاربر جدید
      * @param username نام کاربری
@@ -87,6 +90,13 @@ public class User {
 
     public void setLosses(int losses) {
         this.losses = Math.max(0, losses);
+    }
+
+    public Color getColor() {
+        return color;
+    }
+    public void setColor(Color color) {
+        this.color = color;
     }
 
     // ================= متدهای کسب امتیاز و پیشرفت =================

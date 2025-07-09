@@ -5,11 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17960de7-8f39-4370-8d17-5c16542b5db6" name="Changes" comment="init game screen">
+      <change afterPath="$PROJECT_DIR$/Realm War/src/controller/GameController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Realm War/src/model/GameStatus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/controller/GameManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/controller/MatchRoomManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/controller/MatchRoomManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/controller/NavigationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/controller/NavigationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/controller/UserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/controller/UserManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/database/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/database/DatabaseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/model/GameState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Realm War/src/view/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/view/components/TopBarPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/components/TopBarPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/view/components/BaseBackgroundPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/components/BaseBackgroundPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/view/mapDetals/TopBarPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/mapDetals/TopBarPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Realm War/src/view/screens/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/screens/GameScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/view/screens/HomeScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/screens/HomeScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Realm War/src/view/screens/MatchRoomScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/screens/MatchRoomScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/view/screens/SignUpScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/screens/SignUpScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/view/screens/UserPanelScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/screens/UserPanelScreen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,5 +133,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="simple edit" />
+    <option name="LAST_COMMIT_MESSAGE" value="simple edit" />
   </component>
 </project>

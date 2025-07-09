@@ -1,6 +1,5 @@
 package database;
 
-import controller.UserManager;
 import model.Hasher;
 import model.User;
 

@@ -1,5 +1,6 @@
 package view;
 
+import controller.MatchRoomManager;
 import controller.NavigationManager;
 import controller.UserManager;
 import database.DatabaseManager;
@@ -24,15 +25,7 @@ public class MainFrame extends JFrame implements Runnable {
     public MainFrame() {
         frame = this;
         setTitle("Realm War");
-        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-        addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {
-                if (UserManager.isLoggedIn())
-                    DatabaseManager.updateUserStats(UserManager.getCurrentUser());
-
-                System.exit(0);
-            }
-        });
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         setSize(800, 600);
         setLocationRelativeTo(null);
@@ -76,6 +69,10 @@ public class MainFrame extends JFrame implements Runnable {
 
         panel.setName(panelName);
         crdPanel.add(panel, panelName);
+    }
+
+    public static void createAndShowStartPanel(MatchRoomManager matchRoomManager) {
+        crdPanel.add(new GameScreen(matchRoomManager) ,GameScreen.name);
     }
 
 
