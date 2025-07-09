@@ -2,14 +2,15 @@ package view;
 
 import controller.NavigationManager;
 import controller.UserManager;
+import database.DatabaseManager;
 import view.screens.*;
 import view.screens.SplashScreen;
 import view.utils.SoundPlayer;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Objects;
-import java.util.Stack;
+import java.awt.event.*;
+import java.util.*;
 
 public class MainFrame extends JFrame implements Runnable {
     public static CardLayout cardLayout = new CardLayout();
@@ -19,12 +20,20 @@ public class MainFrame extends JFrame implements Runnable {
     public static MainFrame frame;
     public static String soundPath = "/view/assets/music/background_music.wav";
     public static SoundPlayer soundPlayer = new SoundPlayer(soundPath);
-    public static UserManager userManager = new UserManager();
 
     public MainFrame() {
         frame = this;
         setTitle("Realm War");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                if (UserManager.isLoggedIn())
+                    DatabaseManager.updateUserStats(UserManager.getCurrentUser());
+
+                System.exit(0);
+            }
+        });
+
         setSize(800, 600);
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
@@ -49,6 +58,8 @@ public class MainFrame extends JFrame implements Runnable {
             case "LOGIN" -> panel = new LoginScreen();
             case "SIGNUP" -> panel = new SignUpScreen();
             case "USER_PANEL" -> panel = new UserPanelScreen();
+            case "MATCH_ROOM" -> panel = new MatchRoomScreen();
+            //case "GAME" -> panel = new GameScreen();
             default -> {
                 System.out.println("پنل ناشناخته: " + panelName);
                 return;

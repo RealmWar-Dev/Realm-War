@@ -4,19 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17960de7-8f39-4370-8d17-5c16542b5db6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Realm War/src/database/DatabaseManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Realm War/src/model/Hasher.java" afterDir="false" />
+    <list default="true" id="17960de7-8f39-4370-8d17-5c16542b5db6" name="Changes" comment="init game screen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/Launcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/controller/UserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/controller/UserManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/database/DBManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/view/components/TopIconPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/components/TopIconPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/view/screens/HomeScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/screens/HomeScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/view/screens/SignUpScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/screens/SignUpScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/view/screens/UserPanelScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/screens/UserPanelScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/view/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/view/components/TopBarPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/components/TopBarPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/view/screens/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/screens/GameScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/view/screens/MatchRoomScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/screens/MatchRoomScreen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +24,13 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -61,7 +60,7 @@
     &quot;Application.Launcher.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;game-logic&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;ui-dev&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/AMIN/Desktop/Realm-War&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -71,6 +70,16 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RunManager">
+    <configuration name="Launcher" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="UNNAMED_CLASS_CONFIGURATION" value="true" />
+      <option name="MAIN_CLASS_NAME" value="Launcher" />
+      <module name="Realm-War" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -91,6 +100,10 @@
       <workItem from="1746110791222" duration="85000" />
       <workItem from="1751548720768" duration="2688000" />
       <workItem from="1751581034268" duration="532000" />
+      <workItem from="1751888013225" duration="5957000" />
+      <workItem from="1751895632147" duration="1222000" />
+      <workItem from="1751973099327" duration="11696000" />
+      <workItem from="1752001842369" duration="5281000" />
     </task>
     <servers />
   </component>

@@ -97,7 +97,7 @@ public class Fade {
         // 🔁 مرحله اول: چند میلی‌ثانیه تأخیر قبل از نشان دادن پنل جدید
         Timer delayTimer = new Timer(50, null); // تأخیر 50 میلی‌ثانیه
         delayTimer.setRepeats(false);
-        delayTimer.addActionListener(__ -> {
+        delayTimer.addActionListener(_ -> {
             // بعد از تأخیر، پنل مورد نظر را نمایش بده
             MainFrame.cardLayout.show(MainFrame.crdPanel, panelName);
 

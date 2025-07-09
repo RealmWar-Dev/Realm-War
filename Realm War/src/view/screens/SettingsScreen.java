@@ -3,8 +3,6 @@ package view.screens;
 import controller.NavigationManager;
 import view.components.BaseBackgroundPanel;
 import view.components.Buttons;
-import view.components.TopIconPanel;
-import view.styles.Fade;
 import view.styles.GameStyle;
 
 import javax.swing.*;

@@ -5,7 +5,6 @@ import model.Hasher;
 import model.User;
 
 import java.io.File;
-import java.security.MessageDigest;
 import java.sql.*;
 
 public class DatabaseManager {
@@ -45,7 +44,7 @@ public class DatabaseManager {
                     password BLOB NOT NULL,
                     wins INTEGER DEFAULT 0,
                     losses INTEGER DEFAULT 0,
-                    level INTEGER DEFAULT 0,
+                    level INTEGER DEFAULT 1,
                     score INTEGER DEFAULT 0
                 );
                 """;
@@ -58,27 +57,9 @@ public class DatabaseManager {
     }
 
     /**
-     * تست اتصال به دیتابیس
-     */
-    public boolean testConnection() {
-        try (Connection conn = DriverManager.getConnection(DATABASE_URL)) {
-            return conn != null && !conn.isClosed();
-        } catch (SQLException e) {
-            System.err.println("❌ اتصال به دیتابیس برقرار نشد: " + e.getMessage());
-            return false;
-        }
-    }
-
-    /**
      * ثبت کاربر جدید
      */
     public static void registerUser(String username, String password) {
-
-        // بررسی وجود کاربر
-        if (usernameExists(username)) {
-            throw new IllegalArgumentException("نام کاربری قبلاً انتخاب شده است");
-        }
-
         try {
             // هش کردن رمز عبور
             byte[] hashedPassword = Hasher.hashPassword(password);
@@ -91,12 +72,8 @@ public class DatabaseManager {
                 pstmt.setString(1, username.trim());
                 pstmt.setBytes(2, hashedPassword);
                 pstmt.executeUpdate();
-
-                // تنظیم کاربر جاری
-                UserManager.setCurrentUser(new User(username, password));
             }
         } catch (SQLException e) {
-            System.err.println("❌ خطا در ثبت کاربر: " + e.getMessage());
             throw new RuntimeException("خطا در ثبت کاربر", e);
         }
     }
@@ -104,7 +81,7 @@ public class DatabaseManager {
     /**
      * ورود کاربر به سیستم
      */
-    public static boolean loginUser(String username, String password) throws SQLException {
+    public static User loginUser(String username, String password) throws SQLException {
 
         String sql = "SELECT * FROM user WHERE username = ?";
 
@@ -121,7 +98,7 @@ public class DatabaseManager {
 
                     if (Hasher.verifyPassword(password, storedHashedPassword)) {
                         // ایجاد شیء کاربر با اطلاعات کامل
-                        User user = new User(
+                        return new User(
                                 username,
                                 password,
                                 rs.getInt("level"),
@@ -129,11 +106,9 @@ public class DatabaseManager {
                                 rs.getInt("losses"),
                                 rs.getInt("score")
                         );
-                        UserManager.setCurrentUser(user);
-                        return true;
                     }
                 }
-                return false;
+                return null;
             }
         }
     }
@@ -152,8 +127,40 @@ public class DatabaseManager {
                 return rs.next();
             }
         } catch (SQLException e) {
-            System.err.println("❌ خطا در بررسی نام کاربری: " + e.getMessage());
             throw new RuntimeException("خطا در بررسی نام کاربری", e);
         }
     }
+
+    /**
+     * به‌روزرسانی اطلاعات کاربر با استفاده از شیء User
+     */
+    public static void updateUserStats(User user) {
+        String sql = """
+        UPDATE user\s
+        SET wins = ?,\s
+            losses = ?,\s
+            level = ?,\s
+            score = ?\s
+        WHERE username = ?
+       \s""";
+
+        try (Connection conn = DriverManager.getConnection(DATABASE_URL);
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setInt(1, user.getWins());
+            pstmt.setInt(2, user.getLosses());
+            pstmt.setInt(3, user.getLevel());
+            pstmt.setInt(4, user.getScore());
+            pstmt.setString(5, user.getUsername().trim());
+
+            int rowsUpdated = pstmt.executeUpdate();
+            if (rowsUpdated == 0) {
+                throw new RuntimeException("کاربری با این نام پیدا نشد");
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException("خطا در به‌روزرسانی اطلاعات کاربر", e);
+        }
+    }
+
 }

@@ -4,8 +4,6 @@ package view.styles;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-import java.util.Arrays;
 import java.util.Objects;
 
 public abstract class GameStyle {
