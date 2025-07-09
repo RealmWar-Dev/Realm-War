@@ -25,7 +25,7 @@ public class MatchRoomScreen extends BaseBackgroundPanel {
     private static final Color SECONDARY_COLOR = new Color(120, 144, 156);
     private static final Color GLASS_COLOR = new Color(255, 255, 255, 40);
 
-    private static final Font LABEL_FONT = new Font("Segoe UI Emoji", Font.PLAIN, 15);
+    private static final Font LABEL_FONT = new Font("Segoe UI Emoji", Font.PLAIN, 16);
     private static final Font BUTTON_FONT = new Font("Segoe UI Emoji", Font.BOLD, 15);
     private static final Font STATUS_FONT = new Font("Segoe UI Emoji", Font.PLAIN, 14);
 
@@ -143,7 +143,7 @@ public class MatchRoomScreen extends BaseBackgroundPanel {
 
         // separator
         JSeparator separator = new JSeparator();
-        separator.setMaximumSize(new Dimension(300, 10));
+        separator.setMaximumSize(new Dimension(300, 100));
         separator.setForeground(new Color(255, 255, 255, 100));
         separator.setAlignmentX(Component.CENTER_ALIGNMENT);
 
@@ -167,11 +167,10 @@ public class MatchRoomScreen extends BaseBackgroundPanel {
         glassPanel.add(createInputPanel("password :", passwordField));
         glassPanel.add(Box.createVerticalStrut(10));
         glassPanel.add(statusLabel);
-        glassPanel.add(Box.createVerticalStrut(10));
         glassPanel.add(joinButton);
         glassPanel.add(Box.createVerticalStrut(10));
         glassPanel.add(separator);
-        glassPanel.add(Box.createVerticalStrut(20));
+        glassPanel.add(Box.createVerticalStrut(10));
         glassPanel.add(buttonPanel);
 
         GridBagConstraints gbc = new GridBagConstraints();
