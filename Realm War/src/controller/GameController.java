@@ -75,4 +75,15 @@ public class GameController {
     public int getPlayer2TurnCount() {
         return player2TurnCount;
     }
+
+    public void buildUnitAt(int row, int col) {
+        System.out.println("✅ Building unit at: " + row + "," + col);
+        // بعداً اینجا منطق واقعی ساخت نیرو رو پیاده‌سازی کن
+    }
+
+    public void upgradeAt(int row, int col) {
+        System.out.println("🔼 Upgrading at: " + row + "," + col);
+        // بعداً اینجا منطق ارتقاء نیرو یا ساختمان رو پیاده‌سازی کن
+    }
+
 }
