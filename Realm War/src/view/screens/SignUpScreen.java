@@ -2,7 +2,6 @@ package view.screens;
 
 import controller.NavigationManager;
 import controller.UserManager;
-import database.DatabaseManager;
 import model.User;
 import view.components.*;
 import view.styles.GameStyle;
@@ -41,7 +40,6 @@ public class SignUpScreen extends BaseBackgroundPanel {
     private PasswordField passwordField;
     private PasswordField confirmPasswordField;
     private JLabel errorLabel;
-    private User user;
 
     public SignUpScreen() {
         super(false, false);
@@ -255,7 +253,7 @@ public class SignUpScreen extends BaseBackgroundPanel {
         String confirm = new String(confirmPasswordField.getPassword()).trim();
 
 
-        user = UserManager.register(errors, username, password, confirm);
+        User user = UserManager.register(errors, username, password, confirm);
         if (user != null) {
             // موفقیت
             errorLabel.setForeground(SUCCESS_COLOR);

@@ -100,6 +100,11 @@ public class UserManager {
             errors.append("• Username must be at most 12 characters long<br>");
             isValid = false;
         }
+        assert username != null;
+        if (DatabaseManager.usernameExists(username)) {
+            errors.append("• Username already exists<br>");
+            isValid = false;
+        }
 
         if (password == null || password.isEmpty()) {
             errors.append("• Password cannot be empty<br>");

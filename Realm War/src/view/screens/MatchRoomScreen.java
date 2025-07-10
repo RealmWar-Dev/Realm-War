@@ -57,7 +57,8 @@ public class MatchRoomScreen extends BaseBackgroundPanel {
         passwordField = new PasswordField();
 
         joinButton = createMagicButton("JOIN MATCH", ACCENT_COLOR, _ -> tryJoin(), new Dimension(280, 42));
-        startButton = createMagicButton("START GAME", SUCCESS_COLOR, _ -> startGame(), new Dimension(280, 42));
+        startButton = createMagicButton("START GAME", SUCCESS_COLOR, _ -> NavigationManager.startGame(matchRoom) ,
+                new Dimension(280, 42));
         startButton.setEnabled(false);
         signUpButton = createMagicButton("SIGN UP", SECONDARY_COLOR, _ -> NavigationManager.showPanel(SignUpScreen.name, false), new Dimension(280, 36));
     }
@@ -99,11 +100,6 @@ public class MatchRoomScreen extends BaseBackgroundPanel {
     private void showError(String message) {
         statusLabel.setText(message);
         statusLabel.setForeground(ERROR_COLOR);
-    }
-
-    private void startGame() {
-        // TODO: نمایش صفحه بازی
-        // NavigationManager.showPanel(GameScreen.name, true);
     }
 
     private void setupUI() {
