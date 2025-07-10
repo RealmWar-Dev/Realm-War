@@ -21,7 +21,7 @@ public class GameScreen extends BaseBackgroundPanel {
     protected MapPanel mapPanel;
 
     public GameScreen(MatchRoomManager matchRoom) {
-        super(false, true, true);
+        super(false,  true);
 
         gameController = GameController.getInstance();
         gameController.startNewGame(matchRoom.getPlayer1(), matchRoom.getPlayer2() , 10 , 10);
@@ -57,9 +57,7 @@ public class GameScreen extends BaseBackgroundPanel {
 
         mapPanel = new MapPanel(rows, cols);
 
-        mapPanel.setTileSelectionListener(tile -> {
-            sidePanel.updateTileInfo(tile);
-        });
+        mapPanel.setTileSelectionListener(tile -> sidePanel.updateTileInfo(tile));
 
         mainPanel.add(mapPanel, BorderLayout.CENTER);
 
@@ -71,7 +69,7 @@ public class GameScreen extends BaseBackgroundPanel {
                         // به‌روزرسانی ظاهر خونه
                         selected.setType(TileType.UNIT);
                     } else {
-                        showMessage("Please select a tile first.");
+                        showMessage();
                     }
                 },
                 () -> {
@@ -80,7 +78,7 @@ public class GameScreen extends BaseBackgroundPanel {
                         gameController.upgradeAt(selected.getRow(), selected.getCol());
                         // برای تست فقط پیام نشون بده
                     } else {
-                        showMessage("Please select a tile first.");
+                        showMessage();
                     }
                 },
                 this::endTurn // پایان نوبت اصلی
@@ -92,8 +90,8 @@ public class GameScreen extends BaseBackgroundPanel {
         repaint();
     }
 
-    private void showMessage(String message) {
-        JOptionPane.showMessageDialog(this, message);
+    private void showMessage() {
+        JOptionPane.showMessageDialog(this, "Please select a tile first.");
     }
 
 

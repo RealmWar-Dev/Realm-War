@@ -2,15 +2,12 @@ package view;
 
 import controller.MatchRoomManager;
 import controller.NavigationManager;
-import controller.UserManager;
-import database.DatabaseManager;
 import view.screens.*;
 import view.screens.SplashScreen;
 import view.utils.SoundPlayer;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 import java.util.*;
 
 public class MainFrame extends JFrame implements Runnable {
@@ -31,7 +28,7 @@ public class MainFrame extends JFrame implements Runnable {
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 
-        logo = new ImageIcon(Objects.requireNonNull(getClass().getResource("/view/assets/image/realm war logo.png"))).getImage();
+        logo = new ImageIcon(Objects.requireNonNull(getClass().getResource("/view/assets/image/logo in splash.png"))).getImage();
         setIconImage(logo);
 
         add(crdPanel, BorderLayout.CENTER);

@@ -5,24 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17960de7-8f39-4370-8d17-5c16542b5db6" name="Changes" comment="done sidebar and map panel in game screen">
-      <change afterPath="$PROJECT_DIR$/Realm War/src/model/map/GameMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/controller/NavigationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/controller/NavigationManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/model/GameStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/model/GameStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/model/block/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/model/block/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/model/block/EmptyBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/model/block/EmptyBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/model/block/ForestBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/model/block/ForestBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/model/kingdom/Kingdom.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/model/kingdom/Kingdom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/model/mapGrid/MapGrid.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/model/unit/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/model/unit/Knight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/model/unit/Peasant.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/model/unit/Peasant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/model/unit/Spearman.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/model/unit/Spearman.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/model/unit/Swordman.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/model/unit/Swordman.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/view/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/view/mapDetals/TopBarPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/mapDetals/TopBarPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/view/screens/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/screens/GameScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/Realm War.iml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +66,10 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/AMIN/Desktop/Realm-War/realm warr/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.37126437&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -120,6 +110,9 @@
       <workItem from="1752089130798" duration="5694000" />
       <workItem from="1752094935084" duration="176000" />
       <workItem from="1752151517455" duration="12846000" />
+      <workItem from="1752176924212" duration="94000" />
+      <workItem from="1752177059605" duration="605000" />
+      <workItem from="1752177761328" duration="63000" />
     </task>
     <task id="LOCAL-00001" summary="done top bar in game screen">
       <option name="closed" value="true" />
@@ -159,5 +152,16 @@
     <MESSAGE value="done top bar in game screen" />
     <MESSAGE value="done sidebar and map panel in game screen" />
     <option name="LAST_COMMIT_MESSAGE" value="done sidebar and map panel in game screen" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/untitled/src/Main.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

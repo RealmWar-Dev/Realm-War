@@ -8,11 +8,7 @@ public abstract class BaseBackgroundPanel extends JPanel {
     private final Image backgroundImage;
     private final boolean disableBackground; // ⚠️ اضافه شده
 
-    public BaseBackgroundPanel(boolean isInMenu, boolean isInGame) {
-        this(isInMenu, isInGame, false); // حالت پیش‌فرض: پس‌زمینه فعال باشد
-    }
-
-    public BaseBackgroundPanel(boolean isInMenu, boolean isInGame, boolean disableBackground) {
+    public BaseBackgroundPanel(boolean isInMenu, boolean disableBackground) {
         this.disableBackground = disableBackground;
 
         // بارگذاری تصویر فقط وقتی لازم باشد
@@ -27,7 +23,7 @@ public abstract class BaseBackgroundPanel extends JPanel {
         setLayout(new BorderLayout());
         setOpaque(false); // تا بشه روی پس‌زمینه ترسیم کرد
 
-        add(new TopIconPanel(isInMenu, isInGame), BorderLayout.NORTH);
+        add(new TopIconPanel(isInMenu), BorderLayout.NORTH);
     }
 
     @Override

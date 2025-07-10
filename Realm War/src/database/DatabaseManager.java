@@ -8,7 +8,7 @@ import java.sql.*;
 
 public class DatabaseManager {
     // مسیر دیتابیس - بهتره از مسیر نسبی استفاده کنیم
-    private static final String DATABASE_URL = "jdbc:sqlite:Realm War/src/database/mydatabase.db";
+    private static final String DATABASE_URL = "jdbc:sqlite:mydatabase.db";
 
     // Flag برای بررسی مقداردهی اولیه
     private static boolean initialized = false;

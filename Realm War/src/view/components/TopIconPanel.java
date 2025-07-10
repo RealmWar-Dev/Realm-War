@@ -23,7 +23,6 @@ public class TopIconPanel extends JPanel {
     // ثابت‌های مربوط به مسیر آیکون‌ها
     private static final String HELP_ICON_PATH = "/view/assets/image/icons/help.png";
     private static final String RETURN_ICON_PATH = "/view/assets/image/icons/return-arrow.png";
-    private static final String SAVE_ICON_PATH = "/view/assets/image/icons/save.png";
     private static final String SOUND_ON_ICON_PATH = "/view/assets/image/icons/sound-on.png";
     private static final String SOUND_OFF_ICON_PATH = "/view/assets/image/icons/sound-off.png";
     public static final String USER_LOGIN_ICON_PATH = "/view/assets/image/icons/user_login.png";
@@ -36,16 +35,13 @@ public class TopIconPanel extends JPanel {
     // دکمه‌ها
     private final JButton soundButton = new Buttons.IconButton(SOUND_OFF_ICON_PATH, this::handleSound);
     private final JButton helpButton = new Buttons.IconButton(HELP_ICON_PATH, _ -> NavigationManager.showPanel(HelpScreen.name));
-    private final JButton saveButton = new Buttons.IconButton(SAVE_ICON_PATH, this::handleSave);
     private final JButton backButton = new Buttons.IconButton(RETURN_ICON_PATH, _ -> NavigationManager.goBack());
     private final JButton userButton = new Buttons.IconButton(USER_LOGOUT_ICON_PATH, this::handleUser);
 
     private final boolean isMenu;
-    private final boolean isInGame;
 
-    public TopIconPanel(boolean isMenu, boolean isInGame) {
+    public TopIconPanel(boolean isMenu) {
         this.isMenu = isMenu;
-        this.isInGame = isInGame;
         setupPanel();
     }
 
@@ -68,7 +64,6 @@ public class TopIconPanel extends JPanel {
 
         panel.add(soundButton);
         panel.add(helpButton);
-        panel.add(saveButton);
 
         return panel;
     }
@@ -84,7 +79,6 @@ public class TopIconPanel extends JPanel {
     }
 
     private void updateButtonsVisibility() {
-        saveButton.setVisible(isInGame);
         userButton.setVisible(isMenu);
         backButton.setVisible(!isMenu);
     }
@@ -98,11 +92,6 @@ public class TopIconPanel extends JPanel {
             Buttons.setBackgroundButton(SOUND_ON_ICON_PATH, soundButton);
         }
     }
-
-    private void handleSave(ActionEvent e) {
-        // TODO: پیاده‌سازی منطق ذخیره بازی
-    }
-
     private void handleUser(ActionEvent e) {
         String targetPanel = UserManager.isLoggedIn() ? UserPanelScreen.name : LoginScreen.name;
         NavigationManager.showPanel(targetPanel , false);
