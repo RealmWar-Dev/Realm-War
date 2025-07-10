@@ -1,6 +1,5 @@
 package model.block;
 
-import model.kingdom.Kingdom;
 import model.structure.Structure;
 
 
@@ -20,7 +19,7 @@ public class ForestBlock extends Block {
 
     @Override
     public boolean canPlaceStructure() {
-        return this.isAbsorbed() && !this.isForestRemoved();
+        return this.isAbsorbed() && this.isForestRemoved();
     }
 
 
@@ -39,7 +38,7 @@ public class ForestBlock extends Block {
 
     @Override
     public void applyTurnEffects() {
-        if (isAbsorbed() && getKingdom() != null && !isForestRemoved()) {
+        if (isAbsorbed() && getKingdom() != null && isForestRemoved()) {
             getKingdom().addFood(FOOD_GENERATION_AMOUNT);
         }
     }
@@ -51,6 +50,6 @@ public class ForestBlock extends Block {
 
 
     public boolean isForestRemoved() {
-        return isForestRemoved;
+        return !isForestRemoved;
     }
 }

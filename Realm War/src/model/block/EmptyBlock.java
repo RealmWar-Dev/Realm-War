@@ -1,8 +1,5 @@
 package model.block;
 
-import model.kingdom.Kingdom;
-import model.structure.Structure;
-
 public class EmptyBlock extends Block {
 
     private static final int GOLD_GENERATION_AMOUNT = 1; // Example: 1 gold per turn

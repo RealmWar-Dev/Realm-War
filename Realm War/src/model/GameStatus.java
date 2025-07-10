@@ -1,19 +1,16 @@
 package model;
 
+import model.kingdom.Kingdom;
+
 import java.awt.*;
 
 public class GameStatus {
-    private int currentTurn;                 // شمارنده واقعی نوبت (مثلاً 1، 2، 3...)
-    private String activePlayerName;         // نام بازیکن فعال فعلی
-    private Color activePlayerColor;         // رنگ بازیکن فعال
-    private int gold;                        // مقدار طلا یا منابع
+    private int currentTurn = 1;                 // شمارنده واقعی نوبت (مثلاً 1، 2، 3...)
+    private Kingdom activeKingdom;         // نام بازیکن فعال فعلی
     private final int turnTimeLimit;         // محدودیت زمانی برای هر نوبت (بر حسب ثانیه)
 
-    public GameStatus(int startTurn, String playerName, Color color, int gold, int timeLimit) {
-        this.currentTurn = startTurn;
-        this.activePlayerName = playerName;
-        this.activePlayerColor = color;
-        this.gold = gold;
+    public GameStatus(Kingdom kingdom, int timeLimit) {
+        this.activeKingdom = kingdom;
         this.turnTimeLimit = timeLimit;
     }
 
@@ -33,30 +30,26 @@ public class GameStatus {
     }
 
     // 👤 نام و رنگ بازیکن فعال
-    public String getActivePlayerName() {
-        return activePlayerName;
+    public Kingdom getActiveKingdom() {
+        return activeKingdom;
     }
 
-    public void setActivePlayerName(String name) {
-        this.activePlayerName = name;
+    public void setActiveKingdom(String name) {
+        this.activeKingdom.setName(name);
     }
 
-    public Color getActivePlayerColor() {
-        return activePlayerColor;
+    public Color getActiveKingdomColor() {
+        return activeKingdom.getColor();
     }
 
-    public void setActivePlayerColor(Color color) {
-        this.activePlayerColor = color;
+    public void setActiveKingdomColor(Color color) {
+        this.activeKingdom.setColor(color);
     }
 
-    // 💰 طلا یا منابع
-    public int getGold() {
-        return gold;
+    public void setActiveKingdom(Kingdom kingdom) {
+        this.activeKingdom = kingdom;
     }
 
-    public void setGold(int gold) {
-        this.gold = gold;
-    }
 
     // ⏱️ زمان مجاز هر نوبت
     public int getTurnTimeLimit() {

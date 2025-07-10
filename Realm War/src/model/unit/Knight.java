@@ -49,7 +49,7 @@ public class Knight extends Unit {
         // Apply Forest Block attack advantage
         if (currentBlockLocation instanceof ForestBlock) {
             ForestBlock forestBlock = (ForestBlock) currentBlockLocation;
-            if (!forestBlock.isForestRemoved()) {
+            if (forestBlock.isForestRemoved()) {
                 effectiveAttackPower = (int) (effectiveAttackPower * forestBlock.getAttackBonusMultiplier());
             }
         }
@@ -57,7 +57,7 @@ public class Knight extends Unit {
         // Apply Forest Block defense advantage to target
         if (targetUnit.getCurrentBlockLocation() instanceof ForestBlock) {
             ForestBlock targetForestBlock = (ForestBlock) targetUnit.getCurrentBlockLocation();
-            if (!targetForestBlock.isForestRemoved()) {
+            if (targetForestBlock.isForestRemoved()) {
                 effectiveAttackPower = (int) (effectiveAttackPower / targetForestBlock.getAttackBonusMultiplier());
             }
         }

@@ -5,6 +5,8 @@ import view.screens.GameScreen;
 import view.screens.HomeScreen;
 import view.styles.Fade;
 
+import javax.swing.*;
+
 public class NavigationManager {
 
     // نگهداری نام پنل فعلی
@@ -48,6 +50,17 @@ public class NavigationManager {
             return;
         }
 
+        if (currentPanelName.equals(GameScreen.name)) {
+            int result = JOptionPane.showConfirmDialog(null,
+                    "Are you sure you want to exit the game?",
+                    "Exit Confirmation",
+                    JOptionPane.YES_NO_OPTION);
+
+            if (result == JOptionPane.NO_OPTION) {
+                return;
+            }
+        }
+
         // حذف پنل فعلی
         MainFrame.panelHistoryName.pop();
 
@@ -85,6 +98,8 @@ public class NavigationManager {
 
     public static void startGame(MatchRoomManager matchRoom) {
         MainFrame.createAndShowStartPanel(matchRoom);
+        MainFrame.panelHistoryName.push(GameScreen.name);
+        currentPanelName = GameScreen.name;
         new Fade(GameScreen.name);
     }
 }

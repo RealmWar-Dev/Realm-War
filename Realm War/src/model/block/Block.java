@@ -71,11 +71,15 @@ public abstract class Block {
         if (this.structure != null) {
             throw new IllegalStateException("A structure already exists on this block.");
         }
+        if (this.unit != null) {
+            throw new IllegalStateException("Cannot place a structure on a block with a unit.");
+        }
         if (!canPlaceStructure()) {
             throw new IllegalStateException("Cannot place a structure on this type of block: " + this.blockType);
         }
         this.structure = structure;
     }
+
 
 
     public void removeStructure() {
@@ -87,8 +91,12 @@ public abstract class Block {
         if (this.unit != null) {
             throw new IllegalStateException("A unit already exists on this block.");
         }
+        if (this.structure != null) {
+            throw new IllegalStateException("Cannot place a unit on a block with a structure.");
+        }
         this.unit = unit;
     }
+
 
 
     public void removeUnit() {

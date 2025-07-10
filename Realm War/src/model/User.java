@@ -30,6 +30,7 @@ public class User {
      */
     public User(String username, String password, int level, int score,
                 int wins, int losses) {
+
         this.username = username;
         this.password = password;
         this.level = level;

@@ -1,13 +1,11 @@
 package model.kingdom;
 
 import model.block.Block;
-import model.block.EmptyBlock;
-import model.block.ForestBlock;
 import model.structure.*;
 import model.unit.Unit;
-import model.unit.UnitRank;
+
+import java.awt.*;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,13 +16,13 @@ public class Kingdom {
     private static final Logger LOGGER = Logger.getLogger(Kingdom.class.getName());
 
     private String name;
-    private String playerID;
+    private Color color;
     private int gold;
     private int food;
 
-    private List<Block> ownedBlocks;
-    private List<Structure> ownedStructures;
-    private List<Unit> ownedUnits;
+    private final List<Block> ownedBlocks;
+    private final List<Structure> ownedStructures;
+    private final List<Unit> ownedUnits;
 
     private TownHall townHall;
 
@@ -42,19 +40,16 @@ public class Kingdom {
 
     private static final int BUILDING_COST_INCREMENT = 5;
 
-    public Kingdom(String name, String playerID, int initialGold, int initialFood) {
+    public Kingdom(String name, Color color, int initialGold, int initialFood) {
+        this.color = color;
         if (name == null || name.trim().isEmpty()) {
             throw new IllegalArgumentException("Kingdom name cannot be null or empty.");
-        }
-        if (playerID == null || playerID.trim().isEmpty()) {
-            throw new IllegalArgumentException("Player ID cannot be null or empty.");
         }
         if (initialGold < 0 || initialFood < 0) {
             throw new IllegalArgumentException("Initial resources cannot be negative.");
         }
 
         this.name = name;
-        this.playerID = playerID;
         this.gold = initialGold;
         this.food = initialFood;
 
@@ -74,8 +69,8 @@ public class Kingdom {
         return name;
     }
 
-    public String getPlayerID() {
-        return playerID;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getGold() {
@@ -182,13 +177,12 @@ public class Kingdom {
         if (block.isAbsorbed()) {
             if (block.getKingdom() == this) {
                 LOGGER.log(Level.INFO, "{0} already owns block at ({1},{2}).", new Object[]{name, block.getPositionX(), block.getPositionY()});
-                return false;
             } else {
                 LOGGER.log(Level.INFO, "{0} is attempting to conquer block at ({1},{2}) from {3}. This requires combat, not just absorption.",
                         new Object[]{name, block.getPositionX(), block.getPositionY(), block.getKingdom().getName()});
                 // This scenario would typically involve combat logic, not just absorption.
-                return false;
             }
+            return false;
         }
         if (block.getBlockType() == Block.BlockType.VOID) {
             LOGGER.log(Level.WARNING, "{0} tried to absorb a Void block at ({1},{2}). Not possible.", new Object[]{name, block.getPositionX(), block.getPositionY()});
@@ -251,18 +245,22 @@ public class Kingdom {
             return false;
         }
 
-        // Check for max limits (already done in canBuildStructure, but good to double check)
-        if (structure instanceof Barrack && getStructureCount(Structure.StructureType.BARRACK) >= MAX_BARRACKS) {
-            LOGGER.log(Level.WARNING, "{0} cannot build more Barracks. Max limit reached ({1}).", new Object[]{name, MAX_BARRACKS});
-            return false;
-        }
-        if (structure instanceof Farm && getStructureCount(Structure.StructureType.FARM) >= MAX_FARMS) {
-            LOGGER.log(Level.WARNING, "{0} cannot build more Farms. Max limit reached ({1}).", new Object[]{name, MAX_FARMS});
-            return false;
-        }
-        if (structure instanceof Market && getStructureCount(Structure.StructureType.MARKET) >= MAX_MARKETS) {
-            LOGGER.log(Level.WARNING, "{0} cannot build more Markets. Max limit reached ({1}).", new Object[]{name, MAX_MARKETS});
-            return false;
+        // Check for max limits (already done in canBuildStructure, but good to double-check)
+        switch (structure) {
+            case Barrack barrack1 when getStructureCount(Structure.StructureType.BARRACK) >= MAX_BARRACKS -> {
+                LOGGER.log(Level.WARNING, "{0} cannot build more Barracks. Max limit reached ({1}).", new Object[]{name, MAX_BARRACKS});
+                return false;
+            }
+            case Farm farm when getStructureCount(Structure.StructureType.FARM) >= MAX_FARMS -> {
+                LOGGER.log(Level.WARNING, "{0} cannot build more Farms. Max limit reached ({1}).", new Object[]{name, MAX_FARMS});
+                return false;
+            }
+            case Market market when getStructureCount(Structure.StructureType.MARKET) >= MAX_MARKETS -> {
+                LOGGER.log(Level.WARNING, "{0} cannot build more Markets. Max limit reached ({1}).", new Object[]{name, MAX_MARKETS});
+                return false;
+            }
+            default -> {
+            }
         }
 
         // Deduct building cost
@@ -279,14 +277,13 @@ public class Kingdom {
                     new Object[]{name, structure.getStructureType(), structure.getLocationBlock().getPositionX(),
                             structure.getLocationBlock().getPositionY(), ownedStructures.size()});
 
-            if (structure instanceof Barrack) {
-                nextBarrackCost += BUILDING_COST_INCREMENT;
-            } else if (structure instanceof TownHall) {
-                this.townHall = (TownHall) structure;
-            } else if (structure instanceof Farm) {
-                nextFarmCost += BUILDING_COST_INCREMENT;
-            } else if (structure instanceof Market) {
-                nextMarketCost += BUILDING_COST_INCREMENT;
+            switch (structure) {
+                case Barrack barrack -> nextBarrackCost += BUILDING_COST_INCREMENT;
+                case TownHall hall -> this.townHall = hall;
+                case Farm farm -> nextFarmCost += BUILDING_COST_INCREMENT;
+                case Market market -> nextMarketCost += BUILDING_COST_INCREMENT;
+                default -> {
+                }
             }
 
             updateUnitCapacity();
@@ -326,7 +323,7 @@ public class Kingdom {
         LOGGER.log(Level.INFO, "{0} removed a {1}. Remaining structures: {2}",
                 new Object[]{name, structure.getStructureType(), ownedStructures.size()});
 
-        updateUnitCapacity(); // Recalculate capacity as a barrack/townhall might be removed
+        updateUnitCapacity(); // Recalculate capacity as a barrack/town hall might be removed
     }
 
 
@@ -344,7 +341,7 @@ public class Kingdom {
      * @return true if the structure can be built, false otherwise.
      */
     public boolean canBuildStructure(Structure.StructureType type) {
-        int cost = 0;
+        int cost;
         int currentCount = getStructureCount(type);
 
         switch (type) {
@@ -506,9 +503,7 @@ public class Kingdom {
         // Apply structure effects (production, maintenance)
         int totalMaintenanceCostGold = 0;
         // Use an iterator for safe removal during iteration if structures are destroyed
-        Iterator<Structure> structureIterator = ownedStructures.iterator();
-        while (structureIterator.hasNext()) {
-            Structure structure = structureIterator.next();
+        for (Structure structure : ownedStructures) {
             if (structure.getOwnerKingdom() == this) { // Double check ownership
                 structure.applyTurnEffects(); // Apply production (Farm, Market, TownHall)
                 totalMaintenanceCostGold += structure.calculateMaintenanceCost();
@@ -543,15 +538,13 @@ public class Kingdom {
             LOGGER.log(Level.WARNING, "{0} ran out of food for unit maintenance! Units taking damage.", name);
             // Units take damage if maintenance cannot be paid
             // Use an iterator for safe removal during iteration if units are destroyed
-            Iterator<Unit> unitMaintenanceIterator = ownedUnits.iterator();
-            while (unitMaintenanceIterator.hasNext()) {
-                Unit unit = unitMaintenanceIterator.next();
+            for (Unit unit : ownedUnits) {
                 unit.takeDamage(10); // Example damage for starving units
                 // Units will remove themselves from ownedUnits via takeDamage -> removeUnit()
             }
         }
 
-        // After all destructions, update occupancy
+        // After all destruction's, update occupancy
         updateCurrentUnitOccupancy();
         updateUnitCapacity(); // In case a TownHall/Barrack was destroyed due to maintenance
 
@@ -575,5 +568,13 @@ public class Kingdom {
         // A kingdom is defeated if it has no Town Hall, or if its Town Hall is destroyed.
         // The townHall field is set to null in removeStructure when the Town Hall is lost/destroyed.
         return townHall == null || townHall.isDestroyed();
+    }
+
+    public Color getColor() {
+        return this.color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
     }
 }

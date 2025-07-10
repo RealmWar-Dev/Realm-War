@@ -24,7 +24,7 @@ public class GameScreen extends BaseBackgroundPanel {
         super(false, true, true);
 
         gameController = GameController.getInstance();
-        gameController.startNewGame(matchRoom.getPlayer1(), matchRoom.getPlayer2());
+        gameController.startNewGame(matchRoom.getPlayer1(), matchRoom.getPlayer2() , 10 , 10);
 
         topBar = new TopBarPanel();
 

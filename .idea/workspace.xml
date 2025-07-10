@@ -4,16 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17960de7-8f39-4370-8d17-5c16542b5db6" name="Changes" comment="done top bar in game screen">
-      <change afterPath="$PROJECT_DIR$/Realm War/src/view/mapDetals/mapPanel/TileButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Realm War/src/view/mapDetals/mapPanel/TileType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Realm War/src/view/mapDetals/sidePanel/ActionButtonPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Realm War/src/view/mapDetals/sidePanel/TileInfoPanel.java" afterDir="false" />
+    <list default="true" id="17960de7-8f39-4370-8d17-5c16542b5db6" name="Changes" comment="done sidebar and map panel in game screen">
+      <change afterPath="$PROJECT_DIR$/Realm War/src/model/map/GameMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Realm War/src/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/view/components/TopBarPanel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/view/mapDetals/MapPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/mapDetals/mapPanel/MapPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/src/view/mapDetals/SidePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/mapDetals/sidePanel/SidePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/controller/NavigationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/controller/NavigationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/model/GameStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/model/GameStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/model/block/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/model/block/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/model/block/EmptyBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/model/block/EmptyBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/model/block/ForestBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/model/block/ForestBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/model/kingdom/Kingdom.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/model/kingdom/Kingdom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/model/mapGrid/MapGrid.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/model/unit/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/model/unit/Knight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/model/unit/Peasant.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/model/unit/Peasant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/model/unit/Spearman.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/model/unit/Spearman.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/model/unit/Swordman.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/model/unit/Swordman.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/view/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/view/mapDetals/TopBarPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/mapDetals/TopBarPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Realm War/src/view/screens/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/screens/GameScreen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,7 +39,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="ui-dev" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -65,7 +73,7 @@
     &quot;Application.Launcher.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;ui-dev&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/AMIN/Desktop/Realm-War&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -109,7 +117,9 @@
       <workItem from="1751895632147" duration="1222000" />
       <workItem from="1751973099327" duration="11696000" />
       <workItem from="1752001842369" duration="5281000" />
-      <workItem from="1752089130798" duration="5637000" />
+      <workItem from="1752089130798" duration="5694000" />
+      <workItem from="1752094935084" duration="176000" />
+      <workItem from="1752151517455" duration="12846000" />
     </task>
     <task id="LOCAL-00001" summary="done top bar in game screen">
       <option name="closed" value="true" />
@@ -119,7 +129,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752070636772</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="done sidebar and map panel in game screen">
+      <option name="closed" value="true" />
+      <created>1752094889928</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1752094889928</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,6 +157,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="simple edit" />
     <MESSAGE value="done top bar in game screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="done top bar in game screen" />
+    <MESSAGE value="done sidebar and map panel in game screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="done sidebar and map panel in game screen" />
   </component>
 </project>
