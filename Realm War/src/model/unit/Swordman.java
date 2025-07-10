@@ -5,21 +5,23 @@ import model.block.Block;
 import model.block.ForestBlock;
 
 
-public class Peasant extends Unit {
+public class Swordman extends Unit {
 
-    private static final int BASE_HEALTH = 20;
+    private static final int BASE_HEALTH = 70;
     private static final int BASE_MOVEMENT_RANGE = 2;
-    private static final int BASE_ATTACK_POWER = 5;
+    private static final int BASE_ATTACK_POWER = 15;
     private static final int BASE_ATTACK_RANGE = 1; // Melee unit
-    private static final int BASE_PRODUCTION_COST_GOLD = 5;
-    private static final int BASE_MAINTENANCE_COST_FOOD = 1;
+    private static final int BASE_PRODUCTION_COST_GOLD = 30;
+    private static final int BASE_MAINTENANCE_COST_FOOD = 5;
     private static final int BASE_UNIT_SPACE_OCCUPIED = 1;
 
-    public Peasant(Kingdom ownerKingdom, Block currentBlockLocation) {
+
+    public Swordman(Kingdom ownerKingdom, Block currentBlockLocation) {
         super(BASE_HEALTH, BASE_MOVEMENT_RANGE, BASE_ATTACK_POWER, BASE_ATTACK_RANGE,
                 BASE_PRODUCTION_COST_GOLD, BASE_MAINTENANCE_COST_FOOD, BASE_UNIT_SPACE_OCCUPIED,
-                ownerKingdom, currentBlockLocation, UnitRank.PEASANT);
+                ownerKingdom, currentBlockLocation, UnitRank.SWORDMAN);
     }
+
 
     @Override
     public boolean move(Block targetBlock) {
@@ -30,6 +32,7 @@ public class Peasant extends Unit {
 
     @Override
     public int attack(Unit targetUnit) {
+
         if (hasAttacked) {
             return 0;
         }

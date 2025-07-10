@@ -2,9 +2,13 @@ package model.structure;
 
 import model.kingdom.Kingdom;
 import model.block.Block;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public abstract class Structure {
+
+    private static final Logger LOGGER = Logger.getLogger(Structure.class.getName());
 
     protected int currentHealth;
     protected int maxHealth;
@@ -89,9 +93,18 @@ public abstract class Structure {
         if (this.currentHealth < 0) {
             this.currentHealth = 0;
         }
+
+        LOGGER.log(Level.INFO, "{0} {1} at ({2},{3}) took {4} damage. Current health: {5}",
+                new Object[]{ownerKingdom.getName(), structureType, locationBlock.getPositionX(),
+                        locationBlock.getPositionY(), damage, currentHealth});
+
         if (isDestroyed()) {
-            // Handle destruction logic, perhaps notify Kingdom or remove from Block
-            // This is where a game manager or Kingdom class would handle cleanup.
+            LOGGER.log(Level.INFO, "{0} {1} at ({2},{3}) has been destroyed!",
+                    new Object[]{ownerKingdom.getName(), structureType, locationBlock.getPositionX(), locationBlock.getPositionY()});
+            // Notify the kingdom to remove this structure
+            if (ownerKingdom != null) {
+                ownerKingdom.removeStructure(this);
+            }
         }
     }
 
@@ -109,19 +122,36 @@ public abstract class Structure {
         if (this.currentHealth > maxHealth) {
             this.currentHealth = maxHealth;
         }
+        LOGGER.log(Level.INFO, "{0} {1} at ({2},{3}) recovered {4} health. Current health: {5}",
+                new Object[]{ownerKingdom.getName(), structureType, locationBlock.getPositionX(),
+                        locationBlock.getPositionY(), amount, currentHealth});
     }
 
+    /**
+     * Attempts to level up the structure. Checks if max level is reached and
+     * if the owning kingdom has enough gold.
+     * @return true if leveled up successfully, false otherwise.
+     */
     public boolean levelUp() {
-        if (this.level < this.maxLevel) {
-            // Check if ownerKingdom has enough gold for levelUpCost.
-            // This logic will likely be managed by a BuildingManager or Kingdom class
-            // which calls this method after verifying resources.
-            this.level++;
-            // Update properties based on new level (e.g., increased max health, changed maintenance)
-            // This part is structure-specific and will be implemented in subclasses.
-            return true;
+        if (this.level >= this.maxLevel) {
+            LOGGER.log(Level.INFO, "{0} {1} at ({2},{3}) cannot level up: Max level ({4}) already reached.",
+                    new Object[]{ownerKingdom.getName(), structureType, locationBlock.getPositionX(), locationBlock.getPositionY(), maxLevel});
+            return false;
         }
-        return false;
+
+        // Check if ownerKingdom has enough gold for levelUpCost.
+        if (ownerKingdom != null && !ownerKingdom.deductGold(this.levelUpCost)) {
+            LOGGER.log(Level.INFO, "{0} cannot level up {1}: Insufficient gold (need {2}, have {3}).",
+                    new Object[]{ownerKingdom.getName(), structureType, levelUpCost, ownerKingdom.getGold()});
+            return false;
+        }
+
+        this.level++;
+        applyLevelUpEffects(); // Apply specific effects for the subclass
+        LOGGER.log(Level.INFO, "{0} {1} at ({2},{3}) leveled up to level {4}. Next level up cost: {5}",
+                new Object[]{ownerKingdom.getName(), structureType, locationBlock.getPositionX(),
+                        locationBlock.getPositionY(), level, levelUpCost});
+        return true;
     }
 
 
