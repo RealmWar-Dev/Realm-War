@@ -30,60 +30,52 @@ public class GameController {
         return instance;
     }
 
-    public void startNewGame(User p1, User p2 , int rows , int cols) {
+    public void startNewGame(User p1, User p2, int rows, int cols) {
         // ساخت نقشه
-        gameMap = new GameMap(rows , cols);
+        gameMap = new GameMap(rows, cols);
 
-
-        creatPrimaryKingdom(p1 , p2);
+        // ساخت پادشاهی‌ها
+        createPrimaryKingdom(p1, p2);
 
         int playable = (rows - 2) * (cols - 2);  // ناحیه قابل بازی، چون لبه‌ها Void هستن
-        gameMap.placeRandomBlocks(Block.BlockType.FOREST , (int) (playable * 0.15));
-        gameMap.placeRandomBlocks(Block.BlockType.VOID , (int) (playable * 0.10));
-
+        gameMap.placeRandomBlocks(Block.BlockType.FOREST, (int) (playable * 0.15));
+        gameMap.placeRandomBlocks(Block.BlockType.VOID, (int) (playable * 0.10));
 
         this.activePlayer = kingdom1;
 
         this.kingdom1TurnCount = 1;
         this.kingdom2TurnCount = 0;
 
-        kingdom1.setColor(Color.red);
-        kingdom2.setColor(Color.blue);
+        kingdom1.setColor(Color.RED);
+        kingdom2.setColor(Color.BLUE);
 
-
-
-        this.gameStatus = new GameStatus(
-                kingdom1,
-                30
-        );
+        // ساخت وضعیت بازی با بازیکن فعال و زمان نوبت 30 ثانیه
+        this.gameStatus = new GameStatus(kingdom1, 30);
     }
 
-    private void creatPrimaryKingdom(User p1 , User p2) {
-        // ساخت دو پادشاهی
-        kingdom1 = new Kingdom(p1.getUsername(), Color.red, 20, 10);
-        kingdom2 = new Kingdom(p2.getUsername(), Color.blue, 20, 10);
+    private void createPrimaryKingdom(User p1, User p2) {
+        kingdom1 = new Kingdom(p1.getUsername(), Color.RED, 20, 10);
+        kingdom2 = new Kingdom(p2.getUsername(), Color.BLUE, 20, 10);
 
         int margin = Math.max(1, Math.min(gameMap.getRows(), gameMap.getCols()) / 6);
 
+        Block startBlock1 = gameMap.getBlockAt(margin, margin);
+        Block startBlock2 = gameMap.getBlockAt(gameMap.getRows() - margin - 1, gameMap.getCols() - margin - 1);
 
-        Block startBlock1 = gameMap.getBlockAt(margin, margin); // موقعیت شروع بازیکن ۱: بالا چپ
-
-        Block startBlock2 = gameMap.getBlockAt(
-                gameMap.getRows() - margin - 1,
-                gameMap.getCols() - margin - 1
-        );// موقعیت شروع بازیکن ۲: پایین راست
-
-        // جذب بلاک‌های شروع
         kingdom1.absorbBlock(startBlock1);
         kingdom2.absorbBlock(startBlock2);
 
-        // ساخت TownHall روی بلاک‌ها
         TownHall townHall1 = new TownHall(kingdom1, startBlock1);
         TownHall townHall2 = new TownHall(kingdom2, startBlock2);
 
         kingdom1.addStructure(townHall1);
         kingdom2.addStructure(townHall2);
+
+        // مهم: اضافه کردن ساختار به نقشه
+        gameMap.placeStructure(margin, margin, townHall1);
+        gameMap.placeStructure(gameMap.getRows() - margin - 1, gameMap.getCols() - margin - 1, townHall2);
     }
+
 
     public void nextTurn() {
         gameStatus.nextTurn();
@@ -97,8 +89,6 @@ public class GameController {
         }
         gameStatus.setActiveKingdom(activePlayer);
     }
-
-
 
     public GameStatus getGameStatus() {
         return gameStatus;
@@ -118,12 +108,11 @@ public class GameController {
 
     public void buildUnitAt(int row, int col) {
         System.out.println("✅ Building unit at: " + row + "," + col);
-        // بعداً اینجا منطق واقعی ساخت نیرو رو پیاده‌سازی کن
+        // بعداً اینجا منطق ساخت نیرو رو اضافه کن
     }
 
     public void upgradeAt(int row, int col) {
         System.out.println("🔼 Upgrading at: " + row + "," + col);
-        // بعداً اینجا منطق ارتقاء نیرو یا ساختمان رو پیاده‌سازی کن
+        // بعداً اینجا منطق ارتقاء نیرو یا ساختمان رو اضافه کن
     }
-
 }

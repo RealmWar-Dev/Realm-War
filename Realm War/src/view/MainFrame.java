@@ -28,7 +28,7 @@ public class MainFrame extends JFrame implements Runnable {
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 
-        logo = new ImageIcon(Objects.requireNonNull(getClass().getResource("/view/assets/image/logo in splash.png"))).getImage();
+        logo = new ImageIcon(Objects.requireNonNull(getClass().getResource("/view/assets/images/logo in splash.png"))).getImage();
         setIconImage(logo);
 
         add(crdPanel, BorderLayout.CENTER);

@@ -92,7 +92,7 @@ public class UserPanelScreen extends BaseBackgroundPanel {
     private void addProfilePicture(JPanel panel) {
         try {
             ImageIcon icon = new ImageIcon(Objects.requireNonNull(
-                    getClass().getResource("/view/assets/image/icons/user_login.png")
+                    getClass().getResource("/view/assets/images/icons/user_login.png")
             ));
             Image scaled = icon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
             JLabel label = new JLabel(new ImageIcon(scaled));

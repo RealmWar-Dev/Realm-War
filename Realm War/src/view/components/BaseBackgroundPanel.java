@@ -13,7 +13,7 @@ public abstract class BaseBackgroundPanel extends JPanel {
 
         // بارگذاری تصویر فقط وقتی لازم باشد
         if (!disableBackground) {
-            String imagePath = "/view/assets/image/background.png";
+            String imagePath = "/view/assets/images/background.png";
             ImageIcon icon = new ImageIcon(Objects.requireNonNull(getClass().getResource(imagePath)));
             this.backgroundImage = icon.getImage();
         } else {

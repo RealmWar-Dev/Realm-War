@@ -119,11 +119,6 @@ public abstract class Block {
     public enum BlockType {
         VOID,
         EMPTY,
-        FOREST,
-        CASTLE,
-        GOLD_MINE,
-        MOUNTAIN,
-        SPAWN,
-        WATER
+        FOREST
     }
 }

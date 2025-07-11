@@ -26,15 +26,6 @@ public class TileInfoPanel extends JPanel {
 
     public void updateInfo(TileButton tile) {
         cordLabel.setText("Coordinates: " + tile.getRow() + "," + tile.getCol());
-        typeLabel.setText("Type: " + translate(tile.getType()));
-    }
-
-    private String translate(TileType type) {
-        return switch (type) {
-            case EMPTY -> "EMPTY";
-            case OBSTACLE -> "OBSTACLE";
-            case UNIT -> "UNIT";
-            case BUILDING -> "BUILDING";
-        };
+        typeLabel.setText("Type: " + tile.getVisualType());
     }
 }

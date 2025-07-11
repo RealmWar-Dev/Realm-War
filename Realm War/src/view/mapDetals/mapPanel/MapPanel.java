@@ -1,74 +1,100 @@
 package view.mapDetals.mapPanel;
 
+import model.map.GameMap;
+import model.block.Block;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
-// پنل اصلی نقشه که گریدی از TileButtonها می‌سازه
 public class MapPanel extends JPanel {
-    private final int rows;                         // تعداد ردیف‌ها
-    private final int cols;                         // تعداد ستون‌ها
-    private final TileButton[][] tiles;             // ماتریس دکمه‌های خانه
-    private TileButton selectedTile;                // خانه انتخاب‌شده فعلی
+    private final int rows;
+    private final int cols;
+    private final TileButton[][] tiles;
+    private TileButton selectedTile;
 
-    // رابط کاربری برای گوش دادن به انتخاب خانه
     public interface TileSelectionListener {
         void onTileSelected(TileButton tile);
     }
 
     private TileSelectionListener selectionListener;
 
-    // سازنده پنل نقشه
     public MapPanel(int rows, int cols) {
         this.rows = rows;
         this.cols = cols;
         this.tiles = new TileButton[rows][cols];
 
-        setLayout(new GridLayout(rows, cols, 2, 2));  // چیدمان شبکه‌ای
+        setLayout(new GridLayout(rows, cols, 2, 2));
         setBackground(Color.BLACK);
-        initTiles();  // ساخت خانه‌ها
+        initTiles();
     }
 
-    // ایجاد خانه‌ها و اضافه‌کردن به پنل
     private void initTiles() {
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
-                TileButton tile = new TileButton(row, col, TileType.EMPTY);
-                tile.addActionListener(this::onTileClicked);  // اضافه‌کردن رویداد کلیک
+                TileButton tile = new TileButton(row, col, Block.BlockType.EMPTY);
+                tile.addActionListener(this::onTileClicked);
                 tiles[row][col] = tile;
                 add(tile);
             }
         }
     }
 
-    // وقتی یک خانه کلیک شد
     private void onTileClicked(ActionEvent e) {
         TileButton clicked = (TileButton) e.getSource();
 
         if (selectedTile != null) {
-            selectedTile.setSelected(false);   // خانه قبلی رو غیرفعال کن
+            selectedTile.setSelected(false);
         }
 
         selectedTile = clicked;
-        selectedTile.setSelected(true);        // این خونه رو فعال کن
+        selectedTile.setSelected(true);
 
         if (selectionListener != null) {
-            selectionListener.onTileSelected(selectedTile); // خبر بده به بیرون
+            selectionListener.onTileSelected(selectedTile);
         }
     }
 
-    // تنظیم گوش‌دهنده‌ی انتخاب خانه (برای اتصال به پنل کناری)
     public void setTileSelectionListener(TileSelectionListener listener) {
         this.selectionListener = listener;
     }
 
-    // دسترسی به یک خانه خاص از بیرون
     public TileButton getTile(int row, int col) {
         return tiles[row][col];
     }
 
-    // دسترسی به خانه انتخاب‌شده فعلی
     public TileButton getSelectedTile() {
         return selectedTile;
     }
+
+    /**
+     * 🧩 همگام‌سازی MapPanel با GameMap داده‌شده (به‌روزرسانی نوع بلاک‌ها)
+     */
+    public void syncWithGameMap(GameMap gameMap) {
+        for (int row = 0; row < rows; row++) {
+            for (int col = 0; col < cols; col++) {
+                Block block = gameMap.getBlockAt(row, col);
+                TileButton tile = tiles[row][col];
+
+                tile.setBlockType(block.getBlockType());
+
+                // بررسی اولویت نمایش ساختمان روی یونیت و بلاک
+                if (gameMap.hasStructureAt(row, col)) {
+                    tile.setVisualType(TileButton.TileVisualType.STRUCTURE);
+                } else if (gameMap.hasUnitAt(row, col)) {
+                    tile.setVisualType(TileButton.TileVisualType.UNIT);
+                } else {
+                    switch (block.getBlockType()) {
+                        case EMPTY -> tile.setVisualType(TileButton.TileVisualType.EMPTY);
+                        case FOREST -> tile.setVisualType(TileButton.TileVisualType.FOREST);
+                        case VOID -> tile.setVisualType(TileButton.TileVisualType.VOID);
+                        default -> tile.setVisualType(TileButton.TileVisualType.UNKNOWN);
+                    }
+                }
+            }
+        }
+    }
+
+
+
 }

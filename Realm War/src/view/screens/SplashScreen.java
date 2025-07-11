@@ -28,7 +28,7 @@ public class SplashScreen extends JPanel {
 
     private JPanel createMainPanel() {
         // پنل پس‌زمینه
-        JPanel backgroundPanel = GameStyle.createBackGroundPanel("/view/assets/image/splash background.png");
+        JPanel backgroundPanel = GameStyle.createBackGroundPanel("/view/assets/images/splash background.png");
         backgroundPanel.setBackground(Color.BLACK);
         backgroundPanel.setLayout(new BorderLayout());
         backgroundPanel.setOpaque(true);
@@ -41,7 +41,7 @@ public class SplashScreen extends JPanel {
 
     private JPanel createLogoPanel() {
         Image logoImage = new ImageIcon(Objects.requireNonNull(
-                getClass().getResource("/view/assets/image/logo in splash.png"))).getImage();
+                getClass().getResource("/view/assets/images/logo in splash.png"))).getImage();
 
 
 

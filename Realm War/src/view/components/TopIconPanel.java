@@ -21,12 +21,12 @@ import java.awt.event.ActionEvent;
  */
 public class TopIconPanel extends JPanel {
     // ثابت‌های مربوط به مسیر آیکون‌ها
-    private static final String HELP_ICON_PATH = "/view/assets/image/icons/help.png";
-    private static final String RETURN_ICON_PATH = "/view/assets/image/icons/return-arrow.png";
-    private static final String SOUND_ON_ICON_PATH = "/view/assets/image/icons/sound-on.png";
-    private static final String SOUND_OFF_ICON_PATH = "/view/assets/image/icons/sound-off.png";
-    public static final String USER_LOGIN_ICON_PATH = "/view/assets/image/icons/user_login.png";
-    private static final String USER_LOGOUT_ICON_PATH = "/view/assets/image/icons/user_logout.png";
+    private static final String HELP_ICON_PATH = "/view/assets/images/icons/help.png";
+    private static final String RETURN_ICON_PATH = "/view/assets/images/icons/return-arrow.png";
+    private static final String SOUND_ON_ICON_PATH = "/view/assets/images/icons/sound-on.png";
+    private static final String SOUND_OFF_ICON_PATH = "/view/assets/images/icons/sound-off.png";
+    public static final String USER_LOGIN_ICON_PATH = "/view/assets/images/icons/user_login.png";
+    private static final String USER_LOGOUT_ICON_PATH = "/view/assets/images/icons/user_logout.png";
 
     // تنظیمات فاصله‌ها
     private static final int HORIZONTAL_GAP = 20;

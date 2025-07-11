@@ -2,8 +2,10 @@ package view.screens;
 
 import controller.*;
 import view.components.BaseBackgroundPanel;
-import view.mapDetals.*;
-import view.mapDetals.mapPanel.*;
+import view.mapDetals.TopBarPanel;
+import view.mapDetals.mapPanel.MapPanel;
+import view.mapDetals.mapPanel.TileButton;
+
 import view.mapDetals.sidePanel.SidePanel;
 
 import javax.swing.*;
@@ -24,7 +26,7 @@ public class GameScreen extends BaseBackgroundPanel {
         super(false,  true);
 
         gameController = GameController.getInstance();
-        gameController.startNewGame(matchRoom.getPlayer1(), matchRoom.getPlayer2() , 10 , 10);
+        gameController.startNewGame(matchRoom.getPlayer1(), matchRoom.getPlayer2(), 10, 10);
 
         topBar = new TopBarPanel();
 
@@ -57,7 +59,11 @@ public class GameScreen extends BaseBackgroundPanel {
 
         mapPanel = new MapPanel(rows, cols);
 
+        // تنظیم شنونده انتخاب خانه برای به‌روزرسانی پنل کناری
         mapPanel.setTileSelectionListener(tile -> sidePanel.updateTileInfo(tile));
+
+        // همگام‌سازی پنل نقشه با داده‌های واقعی بازی
+        mapPanel.syncWithGameMap(gameController.getGameMap());
 
         mainPanel.add(mapPanel, BorderLayout.CENTER);
 
@@ -66,8 +72,6 @@ public class GameScreen extends BaseBackgroundPanel {
                     TileButton selected = mapPanel.getSelectedTile();
                     if (selected != null) {
                         gameController.buildUnitAt(selected.getRow(), selected.getCol());
-                        // به‌روزرسانی ظاهر خونه
-                        selected.setType(TileType.UNIT);
                     } else {
                         showMessage();
                     }
@@ -76,15 +80,15 @@ public class GameScreen extends BaseBackgroundPanel {
                     TileButton selected = mapPanel.getSelectedTile();
                     if (selected != null) {
                         gameController.upgradeAt(selected.getRow(), selected.getCol());
-                        // برای تست فقط پیام نشون بده
+                        // برای تست می‌توان پیام یا به‌روزرسانی نمایش داد
                     } else {
                         showMessage();
                     }
                 },
-                this::endTurn // پایان نوبت اصلی
+                this::endTurn
         );
-        mainPanel.add(sidePanel, BorderLayout.EAST);
 
+        mainPanel.add(sidePanel, BorderLayout.EAST);
 
         revalidate();
         repaint();
@@ -93,7 +97,6 @@ public class GameScreen extends BaseBackgroundPanel {
     private void showMessage() {
         JOptionPane.showMessageDialog(this, "Please select a tile first.");
     }
-
 
     private void endTurn() {
         JOptionPane.showMessageDialog(this, "Your turn ended!");
