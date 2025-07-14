@@ -20,6 +20,7 @@ public class TileButton extends JButton {
         setPreferredSize(new Dimension(32, 32));
         setFocusPainted(false);
         setContentAreaFilled(false);
+        setOpaque(true);
 
         updateAppearance();
     }
@@ -47,38 +48,71 @@ public class TileButton extends JButton {
     }
 
     private void updateAppearance() {
-        setIcon(getIconForVisualType(visualType));
+        setBackground(Color.LIGHT_GRAY);
+        setIcon(null);
+        setText("");
+
+        switch (visualType) {
+            case EMPTY:
+                setBackground(new Color(200, 255, 200));
+                break;
+            case FOREST:
+                setBackground(new Color(100, 180, 100));
+                setIcon(getIconForPath("/view/assets/images/icons/forest_tile.png"));
+                break;
+            case VOID:
+                setBackground(new Color(50, 50, 50));
+                setIcon(getIconForPath("/view/assets/images/icons/void_tile.png"));
+                break;
+
+            case FRIENDLY_UNIT:
+                setBackground(new Color(150, 255, 150));
+                setIcon(getIconForPath("/view/assets/images/icons/friendly_unit.png"));
+                setText("FU");
+                break;
+            case ENEMY_UNIT:
+                setBackground(new Color(255, 150, 150));
+                setIcon(getIconForPath("/view/assets/images/icons/enemy_unit.png"));
+                setText("EU");
+                break;
+
+            case FRIENDLY_STRUCTURE:
+                setBackground(new Color(150, 150, 255));
+                setIcon(getIconForPath("/view/assets/images/icons/friendly_structure.png"));
+                setText("FS");
+                break;
+            case ENEMY_STRUCTURE:
+                setBackground(new Color(255, 100, 100));
+                setIcon(getIconForPath("/view/assets/images/icons/enemy_structure.png"));
+                setText("ES");
+                break;
+
+            case OWNED_EMPTY:
+                setBackground(new Color(200, 200, 255));
+                break;
+            case OWNED_FOREST:
+                setBackground(new Color(100, 100, 200));
+                setIcon(getIconForPath("/view/assets/images/icons/owned_forest_tile.png"));
+                break;
+            case ENEMY_OWNED_EMPTY:
+                setBackground(new Color(255, 200, 200));
+                break;
+            case ENEMY_OWNED_FOREST:
+                setBackground(new Color(200, 100, 100));
+                setIcon(getIconForPath("/view/assets/images/icons/enemy_owned_forest_tile.png"));
+                break;
+
+            case UNKNOWN:
+            default:
+                setBackground(Color.MAGENTA);
+                setText("?");
+                break;
+        }
 
         if (isSelected) {
             setBorder(BorderFactory.createLineBorder(Color.YELLOW, 3));
         } else {
-            setBorder(BorderFactory.createLineBorder(Color.GRAY));
-        }
-    }
-
-
-    private Icon getIconForBlockType(BlockType type) {
-        String path = switch (type) {
-            case EMPTY -> "/view/assets/images/icons/empty tile.png";
-            case FOREST -> "/view/assets/images/icons/forest tile.png";
-            case VOID -> "/view/assets/images/icons/void tile.png";
-            default -> null;
-        };
-
-        if (path == null) return null;
-
-        try {
-            java.net.URL imageURL = getClass().getResource(path);
-            if (imageURL == null) {
-                System.err.println("⛔ آیکون پیدا نشد: " + path);
-                return null;
-            }
-            ImageIcon icon = new ImageIcon(imageURL);
-            Image scaledImage = icon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
-            return new ImageIcon(scaledImage);
-        } catch (Exception e) {
-            System.err.println("⛔ خطا در بارگذاری آیکون برای نوع: " + type);
-            return null;
+            setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
         }
     }
 
@@ -91,42 +125,35 @@ public class TileButton extends JButton {
         updateAppearance();
     }
 
-    private Icon getIconForVisualType(TileVisualType type) {
-        String path = switch (type) {
-            case EMPTY -> "/view/assets/images/icons/empty tile.png";
-            case FOREST -> "/view/assets/images/icons/forest tile.png";
-            case VOID -> "/view/assets/images/icons/void tile.png";
-            case UNIT -> "/view/assets/images/icons/unit tile.jpg";
-            case STRUCTURE -> "/view/assets/images/icons/structure tile.jpg";
-            default -> null;
-        };
-
+    private Icon getIconForPath(String path) {
         if (path == null) return null;
 
         try {
             java.net.URL imageURL = getClass().getResource(path);
             if (imageURL == null) {
-                System.err.println("⛔ آیکون پیدا نشد: " + path);
+                System.err.println("⛔ Icon not found: " + path);
                 return null;
             }
             ImageIcon icon = new ImageIcon(imageURL);
             Image scaledImage = icon.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
             return new ImageIcon(scaledImage);
         } catch (Exception e) {
-            System.err.println("⛔ خطا در بارگذاری آیکون برای نوع: " + type);
+            System.err.println("⛔ Error loading icon for path: " + path + ": " + e.getMessage());
             return null;
         }
     }
-
-
     public enum TileVisualType {
         EMPTY,
         FOREST,
         VOID,
-        UNIT,
-        STRUCTURE,
-        ABSORBED,
-        UNKNOWN
+        UNKNOWN,
+        FRIENDLY_UNIT,
+        ENEMY_UNIT,
+        FRIENDLY_STRUCTURE,
+        ENEMY_STRUCTURE,
+        OWNED_EMPTY,
+        OWNED_FOREST,
+        ENEMY_OWNED_EMPTY,
+        ENEMY_OWNED_FOREST,
     }
-
 }

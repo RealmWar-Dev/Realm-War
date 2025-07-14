@@ -4,8 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af7b1f14-aa1c-46b1-b5bc-b4b2cc2a4c19" name="Changes" comment="test">
-      <change afterPath="$PROJECT_DIR$/src/controller/AttackManager.java" afterDir="false" />
+    <list default="true" id="af7b1f14-aa1c-46b1-b5bc-b4b2cc2a4c19" name="Changes" comment="AttackManager">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/mapDetals/mapPanel/MapPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/mapDetals/mapPanel/MapPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/mapDetals/mapPanel/TileButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/mapDetals/mapPanel/TileButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/mapDetals/mapPanel/TileType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/mapDetals/mapPanel/TileType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/mapDetals/sidePanel/ActionButtonPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/mapDetals/sidePanel/ActionButtonPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/mapDetals/sidePanel/SidePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/mapDetals/sidePanel/SidePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/mapDetals/sidePanel/TileInfoPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/mapDetals/sidePanel/TileInfoPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/screens/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/screens/GameScreen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +101,9 @@
       <workItem from="1751910436945" duration="2023000" />
       <workItem from="1752085830678" duration="929000" />
       <workItem from="1752190624675" duration="1957000" />
-      <workItem from="1752204034487" duration="784000" />
+      <workItem from="1752204034487" duration="1552000" />
+      <workItem from="1752219751342" duration="945000" />
+      <workItem from="1752499815023" duration="5886000" />
     </task>
     <task id="LOCAL-00001" summary="Blocks Done.">
       <option name="closed" value="true" />
@@ -119,7 +129,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752086553172</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="AttackManager">
+      <option name="closed" value="true" />
+      <created>1752205587721</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1752205587721</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -152,6 +170,7 @@
     <MESSAGE value="Blocks Done." />
     <MESSAGE value="Okay Shod." />
     <MESSAGE value="test" />
-    <option name="LAST_COMMIT_MESSAGE" value="test" />
+    <MESSAGE value="AttackManager" />
+    <option name="LAST_COMMIT_MESSAGE" value="AttackManager" />
   </component>
 </project>

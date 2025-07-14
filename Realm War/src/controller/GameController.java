@@ -15,7 +15,7 @@ public class GameController {
     private GameMap gameMap;
     private Kingdom kingdom1;
     private Kingdom kingdom2;
-    private Kingdom activePlayer;
+    private Kingdom activePlayer; // This is the field MapPanel needs to access
 
     private int kingdom1TurnCount;
     private int kingdom2TurnCount;
@@ -104,6 +104,11 @@ public class GameController {
 
     public GameMap getGameMap() {
         return gameMap;
+    }
+
+    // ⭐ ADDED THIS METHOD TO ALLOW MapPanel TO ACCESS THE ACTIVE KINGDOM ⭐
+    public Kingdom getActiveKingdom() {
+        return activePlayer;
     }
 
     public void buildUnitAt(int row, int col) {
