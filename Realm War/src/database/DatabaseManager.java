@@ -8,7 +8,7 @@ import java.sql.*;
 
 public class DatabaseManager {
     // مسیر دیتابیس - بهتره از مسیر نسبی استفاده کنیم
-    private static final String DATABASE_URL = "jdbc:sqlite:mydatabase.db";
+    private static final String DATABASE_URL = "jdbc:sqlite:Realm War/mydatabase.db";
 
     // Flag برای بررسی مقداردهی اولیه
     private static boolean initialized = false;
@@ -50,7 +50,6 @@ public class DatabaseManager {
 
             stmt.execute(sqlCreateTable);
         } catch (SQLException e) {
-            System.err.println("❌ خطا در ایجاد دیتابیس: " + e.getMessage());
             throw new RuntimeException("Failed to initialize database", e);
         }
     }

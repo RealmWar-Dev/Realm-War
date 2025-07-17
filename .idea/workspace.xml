@@ -5,10 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17960de7-8f39-4370-8d17-5c16542b5db6" name="Changes" comment="done sidebar and map panel in game screen">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/sqlite_jdbc_3_50_2_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Realm-War.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/.idea/.name" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realm War/Realm War.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/Launcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/database/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/database/DatabaseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/model/kingdom/Kingdom.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/model/kingdom/Kingdom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realm War/src/view/mapDetals/mapPanel/TileType.java" beforeDir="false" afterPath="$PROJECT_DIR$/Realm War/src/view/mapDetals/mapPanel/TileVisualType.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,25 +63,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Launcher.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/AMIN/Desktop/Realm-War&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/AMIN/Desktop/Realm-War/realm warr/src/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.37126437&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Application.Launcher.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "ignore.preview.features.used": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/sqlite-jdbc-3.50.2.0.jar",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "C:/Users/AMIN/Desktop/Realm-War/realm warr/src/Main.java",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.37126437",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlite"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Launcher" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="UNNAMED_CLASS_CONFIGURATION" value="true" />
@@ -113,6 +131,12 @@
       <workItem from="1752176924212" duration="94000" />
       <workItem from="1752177059605" duration="605000" />
       <workItem from="1752177761328" duration="63000" />
+      <workItem from="1752755370335" duration="285000" />
+      <workItem from="1752755665438" duration="8000" />
+      <workItem from="1752755680334" duration="38000" />
+      <workItem from="1752755737369" duration="8000" />
+      <workItem from="1752755757901" duration="853000" />
+      <workItem from="1752756733293" duration="1239000" />
     </task>
     <task id="LOCAL-00001" summary="done top bar in game screen">
       <option name="closed" value="true" />

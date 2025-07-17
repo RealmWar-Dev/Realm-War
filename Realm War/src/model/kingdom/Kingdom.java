@@ -577,4 +577,13 @@ public class Kingdom {
     public void setColor(Color color) {
         this.color = color;
     }
+
+    public String getColorName() {
+        if (color == Color.red)
+            return "red";
+        else if (color == Color.blue)
+            return "blue";
+        else
+            return "_";
+    }
 }
